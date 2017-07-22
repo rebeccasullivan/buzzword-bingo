@@ -1,0 +1,11 @@
+	<div class="container">
+		<table class="table table-bordered">
+			{{#grouped_each 5 squares}}
+			    <tr class="row">
+			    {{#each this}}
+			    	<td class="span2 offset1">{{ square_text }}</td>
+			    {{/each}}
+			    </tr>
+			{{/grouped_each}}
+		</table>
+	</div>
