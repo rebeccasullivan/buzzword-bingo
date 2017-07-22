@@ -10,7 +10,7 @@ router.get('/', function (req, res) {
 
 router.get('/bingo-squares', function (req, res) {
 	var bingoSquares = [];
-    req.database.each('SELECT id, square_text FROM bingo_squares LIMIT 25;', function (err, row) {
+    req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
         console.log(row);
         if (err) {
             console.error(err.message);
