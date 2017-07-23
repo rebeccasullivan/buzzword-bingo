@@ -1,4 +1,4 @@
-<div id="wrapper">
+<div id="bingo-square" class="wrapper">
 	<table class="table table-bordered">
 		{{#grouped_each 5 squares}}
 		    <tr class="row">
@@ -11,22 +11,5 @@
 		{{/grouped_each}}
 	</table>
 <div class="container">
-	<button type="button">Generate New Card</button>
+	<button type="button" class="btn btn-info" onclick="refreshCard()">Generate New Card</button>
 </div>
-
-<!--
-<script>
-	function refreshCard() {
-		var request = new XMLHttpRequest();
-		request.onreadystatechange = function() {
-			// ReadyState == 4 -> Status of 'DONE'
-		    if (this.readyState == 4 && this.status == 200) {
-		      document.getElementById("demo").innerHTML =
-		      this.responseText;
-		    }
-		  };
-		  request.open("GET", "ajax_info.txt", true);
-		  request.send();
-	}
-</script>
--->
