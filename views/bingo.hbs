@@ -1,11 +1,32 @@
-	<div class="container">
-		<table class="table table-bordered">
-			{{#grouped_each 5 squares}}
-			    <tr class="row">
-			    {{#each this}}
-			    	<td class="span2 offset1">{{ square_text }}</td>
-			    {{/each}}
-			    </tr>
-			{{/grouped_each}}
-		</table>
-	</div>
+<div id="wrapper">
+	<table class="table table-bordered">
+		{{#grouped_each 5 squares}}
+		    <tr class="row">
+		    {{#each this}}
+		    	<td>
+					<span>{{ square_text }}</span>
+				</td>
+		    {{/each}}
+		    </tr>
+		{{/grouped_each}}
+	</table>
+<div class="container">
+	<button type="button">Generate New Card</button>
+</div>
+
+<!--
+<script>
+	function refreshCard() {
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			// ReadyState == 4 -> Status of 'DONE'
+		    if (this.readyState == 4 && this.status == 200) {
+		      document.getElementById("demo").innerHTML =
+		      this.responseText;
+		    }
+		  };
+		  request.open("GET", "ajax_info.txt", true);
+		  request.send();
+	}
+</script>
+-->
