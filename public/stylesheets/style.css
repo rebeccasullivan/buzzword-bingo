@@ -2,6 +2,7 @@
 
 body {
   	padding: 50px;
+	background: #444444;
 }
 
 table {
@@ -10,17 +11,24 @@ table {
 }
 
 td {
-	display: block;
+	display: flex;
 	float: left;
 	font-family: 'Montserrat', sans-serif;
 	color: white;
-	padding: 20px;
 	font-size: 16px;
 	width: 20%;
 	height: 130px;
-	border: 10px solid #ddc;
-	background-color: #2b67c6;
+	border: 3px solid white !important;
+	background: #777;
 	text-align: center;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+}
+
+td:hover {
+	box-shadow: inset 0 0 35px #BBB);
+	transition-duration: .25s;
 }
 
 #wrapper {
@@ -30,5 +38,3 @@ td {
 	width: 50%;
 	margin: 0 auto;
 }
-
-
