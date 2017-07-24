@@ -13,3 +13,7 @@ function refreshCard() {
 	httpReq.open(method, url, true);
 	httpReq.send();
 }
+
+function addMark() {
+	
+}
