@@ -14,6 +14,7 @@ function refreshCard() {
 	httpReq.send();
 }
 
-function addMark() {
-	
+function addMark(caller) {
+	var $checkmarkImg = $(caller).find('img');
+	$checkmarkImg.toggle();
 }

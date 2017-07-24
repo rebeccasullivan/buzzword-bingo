@@ -4,7 +4,7 @@
 			{{#grouped_each 5 squares}}
 			    <tr class="row">
 			    {{#each this}}
-			    	<td onclick="addMark()" class="selected">
+			    	<td onclick="addMark(this)">
 						
 						<div>{{square_text}}</div>
 						<img class="checkmark" src="/checkmark.png" />
