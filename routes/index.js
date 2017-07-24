@@ -26,25 +26,6 @@ router.get('/bingo-squares', function (req, res) {
     });
 });
 
-router.get('/bingo-refresh', function (req, res) {
-	var bingoSquares = [];
-    req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
-        if (err) {
-            console.error(err.message);
-        } else {
-			bingoSquares.push(row);
-        }
-    }, function onComplete(err, rowsReturned) {
-        console.info(rowsReturned);
-		
-		res.render('bingoRefresh', {
-			title: pageTitle,
-			squares: bingoSquares
-		});
-    });
-});
-
-
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
     var out = "", subcontext = [], i;
     if (context && context.length > 0) {

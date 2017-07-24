@@ -36,11 +36,6 @@ td div {
 	padding: 5px;
 }
 
-td:hover {
-	box-shadow: inset 0 0 35px #BBB);
-	transition-duration: .25s;
-}
-
 #bingoSquare {
 	display: flex;
 	align-items: center;
