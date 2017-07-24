@@ -21,11 +21,15 @@ td {
 	height: 130px;
 	border: 3px solid white !important;
 	padding: 5px !important;
-	background: #777;
+	background: #00566C;
 	text-align: center;
 	cursor: pointer;
 	justify-content: center;
 	align-items: center;
+}
+
+td:hover {
+	box-shadow: inset 0 0 30px #110736;
 }
 
 td div {
