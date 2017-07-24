@@ -43,7 +43,7 @@ INSERT INTO bingo_squares (id, square_text) VALUES ('dc7b3c70-ccaf-4a3b-8a16-844
 INSERT INTO bingo_squares (id, square_text) VALUES ('2e8e5b5d-19c2-4351-8128-e02fdd52f9c7', 'Takeaways');
 INSERT INTO bingo_squares (id, square_text) VALUES ('2d0f5abc-11cd-4176-a660-c106c0cc3910', 'Impact');
 INSERT INTO bingo_squares (id, square_text) VALUES ('57317a62-4094-4294-a752-4a3c70f9276a', 'Agile');
-INSERT INTO bingo_squares (id, square_text) VALUES ('f3443cc5-4b31-4b56-a694-69ce0564e365', 'Scrum/Standup');
+INSERT INTO bingo_squares (id, square_text) VALUES ('f3443cc5-4b31-4b56-a694-69ce0564e365', 'Scrum (Standup)');
 INSERT INTO bingo_squares (id, square_text) VALUES ('21729a92-d279-4fc7-9070-dff2fb29ac62', 'Touch base');
 INSERT INTO bingo_squares (id, square_text) VALUES ('4b5be2fe-d9cb-4bd9-a570-8dbef54e975e', 'Low-hanging fruit');
 
