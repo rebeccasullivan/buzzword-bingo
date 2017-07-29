@@ -9,12 +9,27 @@ function refreshCard() {
 			document.getElementById("bingoSquare").innerHTML = this.responseText;
 	    }
 	};
-
+	
 	httpReq.open(method, url, true);
 	httpReq.send();
+	fillFreeSquare();
 }
 
 function addMark(caller) {
 	var $checkmarkImg = $(caller).find('img');
+	$checkmarkImg.toggle();
+	$checkmarkImg.parent('td').addClass('checked');
+}
+
+function fillFreeSquare() {
+	console.log("Entered 'fillFreeSquare method");
+	var $bingoGrid = $('#bingoCard').find('.table');
+	var $middleRow = $bingoGrid.find('tr:nth-child(3)');
+	var $middleSpace = $middleRow.find('td:nth-child(3)');
+	var $middleDiv = $middleSpace.find('div');
+	$middleDiv.html("FREE!");
+	$middleDiv.addClass()
+	
+	var $checkmarkImg = $middleSpace.find('img');
 	$checkmarkImg.toggle();
 }

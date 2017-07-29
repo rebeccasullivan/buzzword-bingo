@@ -1,10 +1,10 @@
 <div>
-	<div id="bingoSquare">
+	<div id="bingoCard">
 		<table class="table table-bordered">
 			{{#grouped_each 5 squares}}
-			    <tr class="row">
+			    <tr>
 			    {{#each this}}
-			    	<td onclick="addMark(this)">
+			    	<td class="bingoSquare" onclick="addMark(this)">
 						<div>{{square_text}}</div>
 						<img class="checkmark" src="/checkmark.png" />
 					</td>
@@ -12,6 +12,9 @@
 			    </tr>
 			{{/grouped_each}}
 		</table>
+		
+		<!-- Generate New Card button with AJAX call...
 		<button id="btnRefresh" type="button" class="btn btn-success" onclick="refreshCard()">Generate New Card</button>
+		-->
 	</div>
 </div>
