@@ -28,4 +28,5 @@ function fillFreeSquare() {
 	
 	var $checkmarkImg = $middleSpace.find('img');
 	$checkmarkImg.toggle();
+	$checkmarkImg.parent('td').addClass('checked');
 }

@@ -18,7 +18,7 @@ $(document).ready(function() {
 		
 		var hasWon = false;
 		
-		if (evaluateRows()) {
+		if (evaluateRows() || evaluateColumns()) {
 			hasWon = true;
 		}
 		
@@ -59,6 +59,41 @@ $(document).ready(function() {
 			}
 		}
 		return winningRow;
+	}
+	
+	function evaluateColumns() {
+		var $bingoGrid = $('#bingoCard').find('.table');
+		var $rows = $bingoGrid.find('> tbody > tr');
+		var $columns = [[], [], [], [], []];
+		var hasWon = false;
+		
+		// Create columns
+		for (i = 0; i < $rows.length; i++) {
+			var $squares = $($rows[i]).find('td');
+			
+			for (j = 0; j < $squares.length; j++) {
+				$columns[j].push($squares[j]);
+			}
+		}
+		
+		for (i = 0; i < $columns.length; i++) {
+			if (evaluateColumn($columns[i])) {
+				hasWon = true;
+			}
+		}
+		return hasWon;
+	}
+	
+	function evaluateColumn(column) {
+		var winningColumn = true;
+		
+		for (i = 0; i < column.length; i++) {
+			if (!$(column[i]).hasClass('checked')) {
+				winningColumn = false;
+			}
+		}
+		console.log(winningColumn);
+		return winningColumn;
 	}
 	
 	
