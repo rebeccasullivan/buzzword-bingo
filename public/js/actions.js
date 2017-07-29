@@ -15,11 +15,7 @@ function refreshCard() {
 	fillFreeSquare();
 }
 
-function addMark(caller) {
-	var $checkmarkImg = $(caller).find('img');
-	$checkmarkImg.toggle();
-	$checkmarkImg.parent('td').addClass('checked');
-}
+
 
 function fillFreeSquare() {
 	console.log("Entered 'fillFreeSquare method");

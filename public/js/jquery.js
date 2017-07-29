@@ -14,10 +14,26 @@ $(document).ready(function() {
 	}
 	
 	$('.bingoSquare').click(function() {
-		evaluateRows();
+		addMark(this);
+		
+		var hasWon = false;
+		
+		if (evaluateRows()) {
+			hasWon = true;
+		}
+		
+		if (hasWon) {
+			alert("You've won!");
+		}
 		// evaluateColumns();
 		// evaluateDiagonals();
 	});
+	
+	function addMark(caller) {
+		var $checkmarkImg = $(caller).find('img');
+		$checkmarkImg.toggle();
+		$checkmarkImg.parent('td').addClass('checked');
+	}
 	
 	function evaluateRows() {
 		var $bingoGrid = $('#bingoCard').find('.table');
@@ -32,10 +48,17 @@ $(document).ready(function() {
 		return hasWon;
 	}
 	
-	function evaluateRow($row) {
+	function evaluateRow(row) {
 		// Return a bool of whether all 5 are checked
-		var $squares = $row.find('> td');
-		console.log($squares);
+		var $squares = $(row).find('td');
+		var winningRow = true;
+		
+		for (i = 0; i < $squares.length; i++) {
+			if (!$($squares[i]).hasClass('checked')) {
+				winningRow = false;
+			}
+		}
+		return winningRow;
 	}
 	
 	
