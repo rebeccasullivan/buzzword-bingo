@@ -127,7 +127,6 @@ $(document).ready(function() {
 			var $squares = $(rows[i]).find('td');
 			upperRightDiag.push($squares[j]);
 		}
-		console.log(upperRightDiag);
 		return upperRightDiag;
 	}
 });
