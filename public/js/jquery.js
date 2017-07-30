@@ -18,15 +18,13 @@ $(document).ready(function() {
 		
 		var hasWon = false;
 		
-		if (evaluateRows() || evaluateColumns()) {
+		if (evaluateRows() || evaluateColumns() || evaluateDiagonals()) {
 			hasWon = true;
 		}
 		
 		if (hasWon) {
 			alert("You've won!");
 		}
-		// evaluateColumns();
-		// evaluateDiagonals();
 	});
 	
 	function addMark(caller) {
@@ -38,8 +36,6 @@ $(document).ready(function() {
 	function evaluateRows() {
 		var $bingoGrid = $('#bingoCard').find('.table');
 		var $rows = $bingoGrid.find('> tbody > tr');
-		console.log($rows);
-		console.log('$Rows length: ' + $rows.length);
 		var hasWon = false;
 		
 		for (var i = 0; i < $rows.length; i++) {
@@ -56,7 +52,6 @@ $(document).ready(function() {
 		var winningRow = true;
 		
 		for (var i = 0; i < $squares.length; i++) {
-			console.log($($squares[i]));
 			if (!$($squares[i]).hasClass('checked')) {
 				winningRow = false;
 			}
@@ -68,7 +63,7 @@ $(document).ready(function() {
 		var $bingoGrid = $('#bingoCard').find('.table');
 		var $rows = $bingoGrid.find('> tbody > tr');
 		var $columns = [[], [], [], [], []];
-		var hasWon = false;
+		var hasWinningColumn = false;
 		
 		// Create columns
 		for (var i = 0; i < $rows.length; i++) {
@@ -80,24 +75,59 @@ $(document).ready(function() {
 		}
 		
 		for (var i = 0; i < $columns.length; i++) {
-			if (isWinningColumn($columns[i])) {
-				hasWon = true;
+			if (isWinningArray($columns[i])) {
+				hasWinningColumn = true;
 			}
 		}
-		return hasWon;
+		return hasWinningColumn;
 	}
 	
-	function isWinningColumn(column) {
-		var winningColumn = true;
+	function isWinningArray(array) {
+		var isWinningArray = true;
 		
-		for (var i = 0; i < column.length; i++) {
-			if (!$(column[i]).hasClass('checked')) {
-				winningColumn = false;
+		for (var i = 0; i < array.length; i++) {
+			if (!$(array[i]).hasClass('checked')) {
+				isWinningArray = false;
 			}
 		}
-		console.log(winningColumn);
-		return winningColumn;
+		return isWinningArray;
 	}
 	
+	function evaluateDiagonals() {
+		// Select bingo grid
+		var $bingoGrid = $('#bingoCard').find('.table');
+		var $rows = $bingoGrid.find('> tbody > tr');
+		
+		// Create diagonal arrays
+		var upperLeftDiag = createUpperLeftDiag($rows);
+		var upperRightDiag = createUpperRightDiag($rows);
+		var hasWinningDiagonal = false;
+		
+		// Determine whether diagonals have all checked boxes
+		if (isWinningArray(upperLeftDiag) || isWinningArray(upperRightDiag)) {
+			hasWinningDiagonal = true;
+		}
+		return hasWinningDiagonal;
+	}
 	
+	function createUpperLeftDiag(rows) {
+		var upperLeftDiag = [];
+		for (var i = 0, j = 0; i < rows.length; i++, j++) {
+			var $squares = $(rows[i]).find('td');
+			upperLeftDiag.push($squares[j]);
+		}
+		return upperLeftDiag;
+	}
+	
+	function createUpperRightDiag(rows) {
+		var upperRightDiag = [];
+		
+		// Start from lower left corner 
+		for (var i = rows.length - 1, j = 0; i >= 0; i--, j++) {
+			var $squares = $(rows[i]).find('td');
+			upperRightDiag.push($squares[j]);
+		}
+		console.log(upperRightDiag);
+		return upperRightDiag;
+	}
 });
