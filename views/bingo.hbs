@@ -1,5 +1,9 @@
-<div>
-	<div id="bingoCard">
+<h5>Ever sit on a conference call all day, twiddling your thumbs, wishing there was something better to do with your time?
+	Well, here's a bingo card to help you keep track of the buzzwords of the day...</h5>
+	
+	<p>Coming soon (feature wishlist): ability to customize your buzzword list.</p>
+			
+<div id="bingoCard">
 		<table class="table table-bordered">
 			{{#grouped_each 5 squares}}
 			    <tr>
@@ -12,9 +16,4 @@
 			    </tr>
 			{{/grouped_each}}
 		</table>
-		
-		<!-- Generate New Card button with AJAX call...
-		<button id="btnRefresh" type="button" class="btn btn-success" onclick="refreshCard()">Generate New Card</button>
-		-->
-	</div>
 </div>

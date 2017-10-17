@@ -2,11 +2,51 @@ var express = require('express');
 var Handlebars = require('hbs');
 var router = express.Router();
 var numBingoSquares = 25;
-var pageTitle = "Buzzword Bingo Generator";
+var pageTitle = "Rebecca Sullivan";
 
 router.get('/', function (req, res) {
-    res.redirect('/bingo-squares')
+    res.render('home', {
+    	title: pageTitle
+    });
 });
+
+router.get('/home', function (req, res) {
+    res.render('home', {
+    	title: pageTitle
+    });
+});
+
+router.get('/coding-projects', function(req, res) {
+	res.render('coding-projects', {
+		title: pageTitle
+	});
+});
+
+router.get('/mba-projects', function(req, res) {
+	res.render('mba-projects', {
+		title: pageTitle
+	});
+});
+
+router.get('/tech-resume', function(req, res) {
+	res.render('tech-resume', {
+		title: pageTitle
+	});
+});
+
+router.get('/teaching-resume', function(req, res) {
+	res.render('teaching-resume', {
+		title: pageTitle
+	});
+});
+
+
+router.get('/etc', function(req, res) {
+	res.render('etc', {
+		title: pageTitle
+	});
+});
+
 
 router.get('/bingo-squares', function (req, res) {
 	var bingoSquares = [];

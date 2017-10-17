@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/*
+* {
+	font-family: 'Lato', sans-serif !important; 
+	font-weight: 300 !important;
+}
+
+body {
+	background-color: #2b4959 !important;
+	color: #E9E9E9 !important;
+}
+*/
+
+table {
+	width: 50%;
+	margin: auto;
+	border: solid white 2px !important;
+}
+
+.bingoSquare {
+	display: flex;
+	float: left;
+	color: white;
+	font-size: 16px;
+	width: 20%;
+	height: 130px;
+	border: 3px solid white !important;
+	padding: 5px !important;
+	background: #00566C;
+	text-align: center;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkmark {
+    z-index: 10;
+    width: 110px;
+    opacity: 0.7;
+    position: absolute;
+	display: none;
+}
+
+.bingoSquare:hover {
+	box-shadow: inset 0 0 30px #110736;
+}
+
+.bingoSquare div {
+	padding: 5px;
+}
+
+#btnRefresh {
+	padding: 10px;
+	margin: 20px;
+	border-radius: 0px;
+	border: none;
+}
+
+#bingoCard {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 650px;
+	height: 650px;
+	margin: 0 auto;
+}
+
+
+.headshot {
+	width: 200px;
+}
+
+/* Custom Styles for narrow jumbotron layout */
+/* Space out content a bit */
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 1rem;
+  border-bottom: .05rem solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 2rem 0;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 3rem 0;
+}
+.marketing p + h4 {
+  margin-top: 1.5rem;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 780px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .headshot {
+	  width: 300px;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
