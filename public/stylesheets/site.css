@@ -6,7 +6,7 @@
 }
 
 .body-content {
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 }
 
 table {
@@ -15,14 +15,22 @@ table {
 	border: solid white 2px !important;
 }
 
-.header {
+.header a {
 	color: #00566C !important;
 }
 
 /* HOMEPAGE STYLING */
 .headshot {
 	width: 200px;
+	margin-bottom: 20px;
 }
+
+#nav-name a:hover {
+	text-decoration: none !important;
+	color: black;
+}
+
+
 
 /* BINGO SQUARE STYLING */
 
@@ -133,81 +141,80 @@ body {
     padding-left: 0;
   }
 }
-  .headshot {
-	  width: 300px;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  
-  
-  .coding-cards {
-	  padding-bottom: 30px;
-  }
-  
-  
- 
 
-  /* PROJECT CARD FORMATTING */
-  .projectContent {
-  	margin-left: 40px;	
-  }
-  .card {
-  	/* width: 800px; */
-  	margin-left: auto;
-  	margin-right: auto;
-  	background-color: #F1F1F1;
-  	/* background-color: #E4DEDE;  */
-  	color: black; 
-  	/*
+.headshot {
+  width: 300px;
+}
+/* Space out the masthead */
+.header {
+	margin-bottom: 30px;
+}
+
+
+.coding-cards {
+	padding-bottom: 30px;
+}
+
+
+
+
+/* PROJECT CARD FORMATTING */
+.projectContent {
+	margin-left: 40px;	
+}
+
+.card {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #F1F1F1;
+	/* background-color: #E4DEDE;  */
+	color: black; 
+	/*
 	-webkit-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	-moz-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3); */
-  	display: inline-block;
-  	margin-top: 30px;
-  	overflow: hidden;
-  }
-  
-  /*
-  .card:hover {
-  	-webkit-box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  	-moz-box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  	box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  } */
+	-moz-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
+	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3); */
+	display: inline-block;
+	margin-top: 30px;
+	overflow: hidden;
+}
 
-  .card h2 {
-  	padding: 10px 20px 5px 30px;
-  	font-size: 16px;
-  	font-weight: 400;
-  }
-  .card h3 {
-  	padding: 0px 10px 10px 30px; 
-  	font-size: 14px;
-  }
-  .card .logoBlock {
-  	float: left;
-  	margin-left: 25px;
-  	margin-bottom: 20px;
-  	width: 135px;
-  	text-align: center;
-  	overflow: hidden;
-  	padding: 10px;
-  }
-  .card img {
-  	width: 90px;
-  	margin-bottom: 10px;
-  }
-  .card p {
-  	float: right;
-  	width: 550px;
-  	border-left: 1px solid grey;
-  	overflow: hidden;
-  	padding: 5px 20px 20px 20px;
-  	margin-bottom: 15px;
-  }
-  .card a {
-  	text-decoration: none;
+.card h2 {
+	padding: 10px 20px 5px 30px;
+	font-size: 16px;
+	font-weight: 400;
+}
+.card h3 {
+	padding: 0px 10px 10px 30px; 
+	font-size: 14px;
+}
+.card .logoBlock {
+	float: left;
+	margin-left: 25px;
+	margin-bottom: 20px;
+	width: 135px;
+	text-align: center;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.logoBlock a:hover {
+	text-decoration: none;
+	color: #00566C;
+}
+.card img {
+	width: 90px;
+	margin-bottom: 10px;
+}
+.card p {
+	float: right;
+	width: 550px;
+	border-left: 1px solid grey;
+	overflow: hidden;
+	padding: 5px 20px 20px 20px;
+	margin-bottom: 15px;
+}
+.card a {
+ 	text-decoration: none;
   	color: black;
   	font-size: 12px;
   	font-weight: 500;
@@ -216,72 +223,55 @@ body {
   	padding: 8px;
   	margin: 30px 15px 15px 15px;
   	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
-  }
+}
 
   /* ETC CONTENT */
-  
-  /*
-  .etcContent {
-  	width: 900px;
-  	margin-left: 15px;
-	
-  } */
-
-  .etcCard {
+.etcCard {
   	/* width: 250px;
   	height: 250px; */
   	background-color: #F1F1F1;
 	padding: 10px;
 	height: 300px;
 	margin: 10px;
-  	/*
-	-webkit-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	-moz-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3); */
-  	/*display: inline-block;
-  	margin: 15px;
-  	overflow: hidden;
-  	text-align: center;
-  	vertical-align: top; */
 }
 
-  .etcCard img, iframe {
-  	width: 100%;
+.etcCard img, iframe {
+	width: 100%;
 	margin: 5px;
-  }
-  .etcCard p {
-  	color: black;
-  	padding: 13px 10px 10px 10px;
-  	font-size: 13px;
-  }
+}
+.etcCard p {
+	color: black;
+	padding: 13px 10px 10px 10px;
+	font-size: 13px;
+}
 
   /* FOOTER CONTENT */
 
   
-  .footer {
-  	height: 25px;
-  	width: 100%;
-  	/* background-color: #E9E9E9; */
-  	/* background: #FFC3B7; */
-  	padding: 40px;
-  }
+.footer {
+	height: 25px;
+	width: 100%;
+	padding: 40px;
+}
 
-  .footerContent {
-  	width: 400px;
-  	margin-left: auto;
-  	margin-right: auto;
-  	color: black;
-  	font-size: 16px;
-  	font-weight: bold;
-  }
+.footerContent {
+	/* width: 400px; */
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+}
 
-  .footer a {
-  	text-decoration: none !important;
-  	color: black;
-  }
+.footer a {
+	text-decoration: none !important;
+	color: black;
+}
 
-  .footer a:hover {
-  	color: grey;
-  }
-  
+.footer a:hover {
+	color: grey;
+}
+
+.footer a:visited {
+	text-decoration: none !important;
 }
