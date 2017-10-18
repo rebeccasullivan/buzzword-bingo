@@ -5,14 +5,8 @@
 	font-weight: 300 !important;
 }
 
-body {
-	/* background-color: #2b4959 !important; */
-	/* color: #E9E9E9 !important; */
-}
-
-
-.well img {
-	width: 60px;
+.body-content {
+	margin-bottom: 30px;
 }
 
 table {
@@ -20,6 +14,14 @@ table {
 	margin: auto;
 	border: solid white 2px !important;
 }
+
+
+/* HOMEPAGE STYLING */
+.headshot {
+	width: 200px;
+}
+
+/* BINGO SQUARE STYLING */
 
 .bingoSquare {
 	display: flex;
@@ -71,9 +73,6 @@ table {
 	margin-top: 30px;
 }
 
-.headshot {
-	width: 200px;
-}
 
 /* Custom Styles for narrow jumbotron layout */
 /* Space out content a bit */
@@ -114,14 +113,6 @@ body {
   margin: 2rem 0;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 3rem 0;
-}
-.marketing p + h4 {
-  margin-top: 1.5rem;
-}
-
 /* Customize container */
 @media (min-width: 768px) {
   .container {
@@ -138,16 +129,13 @@ body {
     padding-right: 0;
     padding-left: 0;
   }
+}
   .headshot {
 	  width: 300px;
   }
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
   
   
