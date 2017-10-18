@@ -216,34 +216,35 @@ body {
   }
 
   /* ETC CONTENT */
+  
+  /*
   .etcContent {
   	width: 900px;
   	margin-left: 15px;
 	
-  }
+  } */
 
   .etcCard {
-  	width: 250px;
-  	height: 250px;
-  	background-color: #E9E9E9;
-  	-webkit-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
+  	/* width: 250px;
+  	height: 250px; */
+  	background-color: #F1F1F1;
+	padding: 10px;
+	height: 300px;
+	margin: 10px;
+  	/*
+	-webkit-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
   	-moz-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-  	display: inline-block;
+  	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3); */
+  	/*display: inline-block;
   	margin: 15px;
   	overflow: hidden;
   	text-align: center;
-  	vertical-align: top;
-  }
-
-  .etcCard:hover {
-  	-webkit-box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  	-moz-box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  	box-shadow: 6px 6px 30px 3px rgba(0,0,0,0.54);
-  }
+  	vertical-align: top; */
+}
 
   .etcCard img, iframe {
   	width: 100%;
+	margin: 5px;
   }
   .etcCard p {
   	color: black;
