@@ -225,10 +225,26 @@ body {
   	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
-  /* ETC CONTENT */
+/* ETC CONTENT */
+.panel-body img {
+ 	width: 100%;
+}
+
+.panel {
+	height: 375px;
+	overflow: hidden;
+}
+
+.etc-desc {
+	padding: 10px;
+	margin-top: 10px;
+}
+
+
+  /*
 .etcCard {
   	/* width: 250px;
-  	height: 250px; */
+  	height: 250px; 
   	background-color: #F1F1F1;
 	padding: 10px;
 	height: 300px;
@@ -243,7 +259,7 @@ body {
 	color: black;
 	padding: 13px 10px 10px 10px;
 	font-size: 13px;
-}
+} */
 
   /* FOOTER CONTENT */
 
