@@ -16,7 +16,7 @@ table {
 }
 
 .header a {
-	color: #00566C !important;
+	/* color: #00566C !important; */
 }
 
 /* HOMEPAGE STYLING */
@@ -27,7 +27,7 @@ table {
 
 #nav-name a:hover {
 	text-decoration: none !important;
-	color: black;
+	color: grey;
 }
 
 
@@ -241,47 +241,10 @@ body {
 }
 
 
-  /*
-.etcCard {
-  	/* width: 250px;
-  	height: 250px; 
-  	background-color: #F1F1F1;
-	padding: 10px;
-	height: 300px;
-	margin: 10px;
-}
-
-.etcCard img, iframe {
-	width: 100%;
-	margin: 5px;
-}
-.etcCard p {
-	color: black;
-	padding: 13px 10px 10px 10px;
-	font-size: 13px;
-} */
-
   /* FOOTER CONTENT */
-
-  
-.footer {
-	height: 25px;
-	width: 100%;
-	padding: 40px;
-}
-
-.footerContent {
-	/* width: 400px; */
-	margin-left: auto;
-	margin-right: auto;
-	color: black;
-	font-size: 16px;
-	font-weight: bold;
-}
 
 .footer a {
 	text-decoration: none !important;
-	color: black;
 }
 
 .footer a:hover {
@@ -291,3 +254,4 @@ body {
 .footer a:visited {
 	text-decoration: none !important;
 }
+  */
