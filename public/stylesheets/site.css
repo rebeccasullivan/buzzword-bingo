@@ -7,6 +7,7 @@
 
 .body-content {
 	margin-bottom: 40px;
+	padding: 10px;
 }
 
 table {
@@ -94,7 +95,6 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -150,12 +150,9 @@ body {
 	margin-bottom: 30px;
 }
 
-
 .coding-cards {
 	padding-bottom: 30px;
 }
-
-
 
 
 /* PROJECT CARD FORMATTING */
@@ -167,15 +164,11 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #F1F1F1;
-	/* background-color: #E4DEDE;  */
 	color: black; 
-	/*
-	-webkit-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-	-moz-box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3);
-	box-shadow: 6px 6px 20px 3px rgba(0,0,0,0.3); */
 	display: inline-block;
 	margin-top: 30px;
 	overflow: hidden;
+	width: 100%;
 }
 
 .card h2 {
@@ -242,7 +235,9 @@ body {
 
 
   /* FOOTER CONTENT */
-
+.footer {
+	margin-bottom: 20px;
+}
 .footer a {
 	text-decoration: none !important;
 }
