@@ -16,6 +16,12 @@ router.get('/home', function (req, res) {
     });
 });
 
+router.get('/topic-du-jour', function (req, res) {
+	res.render('topic-du-jour', {
+		title: pageTitle
+	});
+});
+
 router.get('/coding-projects', function(req, res) {
 	res.render('coding-projects', {
 		title: pageTitle
