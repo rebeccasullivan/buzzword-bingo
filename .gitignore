@@ -1,3 +1,4 @@
 /node_modules
 /*.env
 *.zip
+/public/img/pgadmin4-2.0.dmg
