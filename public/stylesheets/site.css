@@ -16,9 +16,6 @@ table {
 	border: solid white 2px !important;
 }
 
-.header a {
-	/* color: #00566C !important; */
-}
 
 /* HOMEPAGE STYLING */
 .headshot {
@@ -31,6 +28,20 @@ table {
 	color: grey;
 }
 
+.navbar a {
+	color: #337ab7 !important;
+}
+
+a:hover {
+	color: grey !important;
+	text-decoration: none !important;
+}
+
+.navbar {
+    background: white !important;
+    border: 0px solid white !important;
+    box-shadow: none !important;
+}
 
 
 /* BINGO SQUARE STYLING */

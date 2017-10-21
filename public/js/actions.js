@@ -30,3 +30,4 @@ function fillFreeSquare() {
 	$checkmarkImg.toggle();
 	$checkmarkImg.parent('td').addClass('checked');
 }
+
