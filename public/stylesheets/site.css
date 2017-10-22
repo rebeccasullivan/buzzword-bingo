@@ -11,6 +11,10 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.body-content {
+	padding: 1rem;
+}
+
 /* Customize container */
 @media (max-width: 576px) {
   .card {
@@ -135,6 +139,12 @@ footer a:visited {
 	border: none;
 }
 
+@media screen and (min-width: 500px) {
+  .visible-landscape-device {
+	  display: block;
+  }
+}
+
 #bingoCard {
 	display: flex;
 	align-items: center;
@@ -220,6 +230,21 @@ table {
 }
 
 /* ETC CONTENT */
+@media (min-width: 768px) {
+	.view {
+		height: 160px;
+		overflow: hidden;
+	}
+
+	.view img, .view iframe {
+		height: 100%;
+		width: auto;
+	}
+	.card-body {
+		height: 180px;
+	}
+} 
+
 .panel-body img {
  	width: 100%;
 }
