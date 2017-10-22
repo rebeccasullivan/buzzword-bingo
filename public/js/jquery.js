@@ -1,16 +1,6 @@
 $(document).ready(function() {
 	fillFreeSquare();
 
-
-	$('#bs-example-navbar-collapse-1').on('show.bs.collapse', function() {
-	    $('.nav-pills').addClass('nav-stacked').removeClass('pull-right');
-	});
-
-	//Unstack menu when not collapsed
-	$('#bs-example-navbar-collapse-1').on('hide.bs.collapse', function() {
-	    $('.nav-pills').removeClass('nav-stacked').addClass('pull-right');
-	});
-
 	function fillFreeSquare() {
 		var $bingoGrid = $('#bingoCard').find('.table');
 		var $middleRow = $bingoGrid.find('tr:nth-child(3)');

@@ -23,11 +23,6 @@ table {
 	margin-bottom: 20px;
 }
 
-#nav-name a:hover {
-	text-decoration: none !important;
-	color: grey;
-}
-
 .navbar a {
 	color: #337ab7 !important;
 }
