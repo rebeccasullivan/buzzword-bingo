@@ -105,23 +105,17 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+#header,
 .footer {
   padding-right: 1rem;
   padding-left: 1rem;
 }
 
 /* Custom page header */
-.header {
+#header {
   padding-bottom: 1rem;
   border-bottom: .05rem solid #e5e5e5;
   margin-top: 30px;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 3rem;
 }
 
 /* Custom page footer */
@@ -145,8 +139,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
-  .header,
-  .marketing,
+  #header,
   .footer {
     padding-right: 0;
     padding-left: 0;
@@ -157,8 +150,8 @@ body {
   width: 300px;
 }
 /* Space out the masthead */
-.header {
-	margin-bottom: 30px;
+#header {
+	margin-bottom: 10px;
 }
 
 .coding-cards {
