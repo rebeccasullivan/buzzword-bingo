@@ -16,10 +16,19 @@ body {
 }
 
 /* Customize container */
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .card {
 	  margin-bottom: 3rem;
   }
+}
+
+@media (min-width: 500px) {
+	.visible-landscape-device {
+		display: block !important;
+	}
+	.hidden-landscape-device {
+		display: none !important;
+	}
 }
 
 @media (min-width: 768px) {
