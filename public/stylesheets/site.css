@@ -189,13 +189,19 @@ table {
 .project-card {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 20px;
 	background-color: #F1F1F1;
 	color: black; 
 	display: inline-block;
-	margin-top: 30px;
 	overflow: hidden;
 	width: 100%;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 3px 0 rgba(0,0,0,.12);
+}
+
+@media (max-width: 500px) {
+	.logoBlock {
+		float: none;
+	}
 }
 
 .project-card h2 {
@@ -225,14 +231,12 @@ table {
 	width: 90px;
 	margin-bottom: 10px;
 }
+
+
 .project-card p {
-	float: right;
-	width: 550px;
-	border-left: 1px solid grey;
-	overflow: hidden;
-	padding: 5px 20px 20px 20px;
-	margin-bottom: 15px;
+	padding: 0px 25px 10px 30px;
 }
+
 .project-card a {
  	text-decoration: none;
   	color: black;
