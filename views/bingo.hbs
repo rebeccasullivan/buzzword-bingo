@@ -1,6 +1,7 @@
 
 <div>	
-	<p>Ever sit on a conference call all day, twiddling your thumbs, wishing there was something better to do with your time?</p>
+	<p>Ever sit on a conference call all day, twiddling your thumbs, 
+		wishing there was something better to do with your time?</p>
 	<p>Well, here's a bingo card to help you keep track of the buzzwords of the day...</p>
 
 	<div class="hidden-landscape-device">
@@ -8,7 +9,6 @@
 	</div>
 </div>
 
-		
 <div id="bingoCard" class="visible-landscape-device" style="display: none;">
 		<table class="table table-bordered">
 			{{#grouped_each 5 squares}}
@@ -23,3 +23,23 @@
 			{{/grouped_each}}
 		</table>
 </div>
+
+<!--
+<div class="visible-landscape-device" style="display: none;">
+	{{#grouped_each 5 squares}}
+	<div class="square">
+		<div class="content">
+			{{#each this}}
+			<div class="table">
+				
+				<div class="table-cell">
+					{{square_text}}
+				</div>
+				
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	{{/grouped_each}}
+</div>
+-->

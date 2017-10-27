@@ -116,6 +116,38 @@ footer a:visited {
 
 
 /* BINGO STYLES */
+
+.square {
+    float:left;
+    position: relative;
+    width: 15%;
+    padding-bottom : 15%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-color: #00566C;
+    overflow:hidden;
+	color: white;
+	text-align: center;
+}
+
+.content {
+    position:absolute;
+    height:90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    
+}
+.table{
+    display:table;
+    width:100%;
+    height:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+}
+
+
+
 .bingoSquare {
 	display: flex;
 	float: left;
@@ -272,6 +304,30 @@ table {
 		height: 180px;
 	}
 } 
+
+.card-body h4 {
+	font-weight: bold !important;
+}
+
+.img-booklog {
+	margin: auto;
+    width: 60% !important;
+    display: block;
+    padding-top: 10%;
+    padding-bottom: 20%;
+	height: auto !important;
+}
+
+.img-hs {
+    margin: auto;
+    width: 60% !important;
+    display: block;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+.burgundy {
+	background-color: #71002F;
+}
 
 .panel-body img {
  	width: 100%;
