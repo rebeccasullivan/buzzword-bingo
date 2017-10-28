@@ -324,6 +324,7 @@ table {
     width: 47px;
     line-height: 0;
 	float: right;
+	position: relative;
 }
 
 .btn-floating {
