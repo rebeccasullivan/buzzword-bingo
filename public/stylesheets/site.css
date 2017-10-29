@@ -289,6 +289,38 @@ table {
 	padding-bottom: 30px;
 }
 
+/* BLOG STYLES */
+.card-blog {
+	box-shadow: 0 0px 5px 0 rgba(0,0,0,.16), 0 0px 5px 0 rgba(0,0,0,.12) !important;
+}
+.card-header {
+	padding: .75rem 1.25rem;
+	margin-bottom: 0;
+	background-color: rgba(0,0,0,.03);
+	border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-body-blog {
+	padding: 1.5rem;
+}
+
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.blog-post {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card-footer {
+    padding: .75rem 1.25rem;
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
 /* ETC CONTENT */
 @media (min-width: 768px) {
 	.view {

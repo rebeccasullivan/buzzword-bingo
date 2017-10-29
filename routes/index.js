@@ -58,9 +58,6 @@ router.get('/bingo-squares', function (req, res) {
     });
 });
 
-// Create client to access blog content
-
-
 // Blog Routes
 router.get('/blog', function (req, res) {
 	// Get Contentful client
@@ -78,6 +75,7 @@ router.get('/blog', function (req, res) {
 		  	blogPosts.push(entry);
 	  	});
 	
+		// Send entries to handlebars template to display
 	  	res.render('blog', {
 	  		blogPosts: blogPosts
 	  	});
@@ -85,7 +83,7 @@ router.get('/blog', function (req, res) {
 }); 
 
 /*
-router.get('/blog/:postId', function (req, res) {
+router.get('/blog/:entrySlug', function (req, res) {
 	// Make API call
 	
 	// Render blog layout with specific post elements
