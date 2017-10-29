@@ -5,58 +5,40 @@ var numBingoSquares = 25;
 var pageTitle = "Rebecca Sullivan";
 
 router.get('/', function (req, res) {
-    res.render('home', {
-    	title: pageTitle
-    });
+    res.render('home');
 });
 
 router.get('/home', function (req, res) {
-    res.render('home', {
-    	title: pageTitle
-    });
+    res.render('home');
 });
 
 router.get('/topic-du-jour', function (req, res) {
-	res.render('topic-du-jour', {
-		title: pageTitle
-	});
+	res.render('topic-du-jour');
 });
 
 router.get('/blog', function (req, res) {
-    res.render('blog', {
-    	title: pageTitle
-    });
+    res.render('blog');
 });
 
 router.get('/coding-projects', function(req, res) {
-	res.render('coding-projects', {
-		title: pageTitle
-	});
+	res.render('coding-projects');
 });
 
 router.get('/mba-projects', function(req, res) {
-	res.render('mba-projects', {
-		title: pageTitle
-	});
+	res.render('mba-projects');
 });
 
 router.get('/tech-resume', function(req, res) {
-	res.render('tech-resume', {
-		title: pageTitle
-	});
+	res.render('tech-resume');
 });
 
 router.get('/teaching-resume', function(req, res) {
-	res.render('teaching-resume', {
-		title: pageTitle
-	});
+	res.render('teaching-resume');
 });
 
 
 router.get('/etc', function(req, res) {
-	res.render('etc', {
-		title: pageTitle
-	});
+	res.render('etc');
 });
 
 
@@ -93,4 +75,26 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
     return out;
 });
 
-module.exports = router;
+/*
+app.use('/', (req, res, next) => {
+	res.locals.year = new Date().getFullYear();
+	next();
+})
+// Home
+app.get('/', (req, res) => {
+  Cosmic.getObjects({ bucket: { slug: bucket_slug, read_key: read_key } }, (err, response) => {
+    const cosmic = response
+    if (cosmic.objects.type.posts) {
+      cosmic.objects.type.posts.forEach(post => {
+        const friendly_date = helpers.friendlyDate(new Date(post.created_at))
+        post.friendly_date = friendly_date.month + ' ' + friendly_date.date
+      })
+    } else {
+      cosmic.no_posts = true
+    }
+    res.locals.cosmic = cosmic
+    res.render('index.html', { partials })
+  })
+})*/
+
+module.exports = router; 

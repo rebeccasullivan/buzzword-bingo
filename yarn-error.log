@@ -1,0 +1,64 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/becca2718/.rvm/gems/ruby-2.3.4/bin:/Users/becca2718/.rvm/gems/ruby-2.3.4@global/bin:/Users/becca2718/.rvm/rubies/ruby-2.3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/becca2718/.rvm/bin
+
+Yarn version: 
+  1.2.1
+
+Node version: 
+  8.7.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "buzzword-bingo",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node ./bin/www",
+      "test": "mocha"
+      "dev": "nodemon ./bin/www"
+  },
+    "dependencies": {
+      "body-parser": "^1.15.2",
+      "bootstrap": "^3.3.7",
+      "cookie-parser": "^1.4.3",
+      "debug": "^2.2.0",
+      "express": "^4.15.3",
+      "favicon": "0.0.2",
+      "handlebars": "^4.0.10",
+      "hbs": "^4.0.1",
+      "morgan": "^1.7.0",
+      "pg": "6.x",
+      "serve-favicon": "^2.3.2",
+      "sqlite3": "^3.1.8"
+      "cosmicjs": "^2.39.0",
+      "hogan-express": "^0.5.2",
+      "nodemon": "^1.11.0"
+    },
+    "devDependencies": {
+      "chai": "^3.5.0",
+      "mocha": "^2.5.3",
+      "supertest": "^1.2.0",
+      "supertest-as-promised": "^3.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /Users/becca2718/workspaces/buzzword-bingo/package.json: Unexpected string in JSON at position 141
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:770:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:92:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:103:13
+      at <anonymous>

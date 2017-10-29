@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Cosmic = require('cosmicjs');
+// var bucket_slug = process.env.COSMIC_BUCKET || 'simple-blog-website';
+// var read_key = process.env.COSMIC_READ_KEY;
 
 var databaseMiddleware = require('./middleware/database');
 var routes = require('./routes/index');
@@ -30,10 +33,7 @@ app.use(function (req, res, next) {
     next(err);
 });
 
-// error handlers
-
-// development error handler
-// will print stacktrace
+// Dev error handler: will print stack trace
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
@@ -44,8 +44,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
+// Prod error handler: will suppress stack trace to user
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
