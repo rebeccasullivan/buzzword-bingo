@@ -36,7 +36,6 @@ router.get('/teaching-resume', function(req, res) {
 	res.render('teaching-resume');
 });
 
-
 router.get('/etc', function(req, res) {
 	res.render('etc');
 });
