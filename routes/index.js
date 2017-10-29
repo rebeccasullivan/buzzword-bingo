@@ -67,39 +67,29 @@ router.get('/blog', function (req, res) {
 	var client = contentful.createClient({
 	  accessToken: config.accessToken,
 	  space: config.space
+	}); 
+	
+	var blogPosts = [];
+	
+	// Get all Contentful entries
+	var entries = client.getEntries()
+	.then(function (entries) {
+	 	entries.items.forEach(function (entry) {
+		  	blogPosts.push(entry);
+	  	});
+	
+	  	res.render('blog', {
+	  		blogPosts: blogPosts
+	  	});
 	});
-	
-	client.getEntries()
-	.then((response) => console.log(response.items))
-	.catch(console.error)
-	
-	/*
-	// Connect to Contentful API
-	client.getEntries().then(function (entries) {
-	  // log the title for all the entries that have it
-	  entries.items.forEach(function (entry) {
-	    if(entry.fields.productName) {
-	      console.log(entry.fields.productName)
-	    }
-	  })
-	}); */
-	
-	
-	// Make request for all blog posts
-	
-	// Add blog posts to hbs template to iterate through them
-	
-	// Render blog page
-	
-	
-	res.render('blog');
 }); 
 
+/*
 router.get('/blog/:postId', function (req, res) {
 	// Make API call
 	
 	// Render blog layout with specific post elements
-});
+}); */
 
 
 // Handlebars helper to group bingo squares in sets of 5 for rows
