@@ -82,12 +82,16 @@ router.get('/blog', function (req, res) {
 	});
 }); 
 
-/*
+
 router.get('/blog/:entrySlug', function (req, res) {
 	// Make API call
 	
-	// Render blog layout with specific post elements
-}); */
+	
+	// Render blog layout with specific blog post elements
+	res.render('blog-post', {
+		entrySlug: req.params.entrySlug
+	})
+});
 
 
 // Handlebars helper to group bingo squares in sets of 5 for rows
