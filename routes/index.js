@@ -22,6 +22,12 @@ router.get('/topic-du-jour', function (req, res) {
 	});
 });
 
+router.get('/blog', function (req, res) {
+    res.render('blog', {
+    	title: pageTitle
+    });
+});
+
 router.get('/coding-projects', function(req, res) {
 	res.render('coding-projects', {
 		title: pageTitle
