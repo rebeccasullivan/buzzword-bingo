@@ -4,10 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Cosmic = require('cosmicjs');
-// var bucket_slug = process.env.COSMIC_BUCKET || 'simple-blog-website';
-// var read_key = process.env.COSMIC_READ_KEY;
-
 var databaseMiddleware = require('./middleware/database');
 var routes = require('./routes/index');
 
@@ -52,6 +48,5 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

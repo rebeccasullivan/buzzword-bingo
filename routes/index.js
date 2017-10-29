@@ -1,9 +1,12 @@
 var express = require('express');
 var Handlebars = require('hbs');
 var router = express.Router();
-var numBingoSquares = 25;
 var pageTitle = "Rebecca Sullivan";
+var Cosmic = require('cosmicjs');
+var contentful = require('contentful');
+var config = require('../package.json').config || {};
 
+// Basic GET routes for all pages
 router.get('/', function (req, res) {
     res.render('home');
 });
@@ -14,10 +17,6 @@ router.get('/home', function (req, res) {
 
 router.get('/topic-du-jour', function (req, res) {
 	res.render('topic-du-jour');
-});
-
-router.get('/blog', function (req, res) {
-    res.render('blog');
 });
 
 router.get('/coding-projects', function(req, res) {
@@ -40,7 +39,7 @@ router.get('/etc', function(req, res) {
 	res.render('etc');
 });
 
-
+// Logic for getting seed data for Bingo Squares from SQLite
 router.get('/bingo-squares', function (req, res) {	
 	var bingoSquares = [];
     req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
@@ -59,6 +58,51 @@ router.get('/bingo-squares', function (req, res) {
     });
 });
 
+// Create client to access blog content
+
+
+// Blog Routes
+router.get('/blog', function (req, res) {
+	// Get Contentful client
+	var client = contentful.createClient({
+	  accessToken: config.accessToken,
+	  space: config.space
+	});
+	
+	client.getEntries()
+	.then((response) => console.log(response.items))
+	.catch(console.error)
+	
+	/*
+	// Connect to Contentful API
+	client.getEntries().then(function (entries) {
+	  // log the title for all the entries that have it
+	  entries.items.forEach(function (entry) {
+	    if(entry.fields.productName) {
+	      console.log(entry.fields.productName)
+	    }
+	  })
+	}); */
+	
+	
+	// Make request for all blog posts
+	
+	// Add blog posts to hbs template to iterate through them
+	
+	// Render blog page
+	
+	
+	res.render('blog');
+}); 
+
+router.get('/blog/:postId', function (req, res) {
+	// Make API call
+	
+	// Render blog layout with specific post elements
+});
+
+
+// Handlebars helper to group bingo squares in sets of 5 for rows
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
     var out = "", subcontext = [], i;
     if (context && context.length > 0) {
@@ -73,27 +117,5 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
     }
     return out;
 });
-
-/*
-app.use('/', (req, res, next) => {
-	res.locals.year = new Date().getFullYear();
-	next();
-})
-// Home
-app.get('/', (req, res) => {
-  Cosmic.getObjects({ bucket: { slug: bucket_slug, read_key: read_key } }, (err, response) => {
-    const cosmic = response
-    if (cosmic.objects.type.posts) {
-      cosmic.objects.type.posts.forEach(post => {
-        const friendly_date = helpers.friendlyDate(new Date(post.created_at))
-        post.friendly_date = friendly_date.month + ' ' + friendly_date.date
-      })
-    } else {
-      cosmic.no_posts = true
-    }
-    res.locals.cosmic = cosmic
-    res.render('index.html', { partials })
-  })
-})*/
 
 module.exports = router; 

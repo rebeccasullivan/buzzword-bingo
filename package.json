@@ -5,11 +5,17 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+	"build": "webpack --config webpack.config.js"
+  },
+  "config": {
+    "accessToken": "831f3318d3aba1f60e3bdc922eea842172b327cdee222faacf32e9314c86098a",
+    "space": "06vq3acgq5wh"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "contentful": "^5.0.2",
     "cookie-parser": "^1.4.3",
     "cosmicjs": "^2.39.0",
     "debug": "^2.2.0",
@@ -19,7 +25,6 @@
     "hbs": "^4.0.1",
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
-    "pg": "6.x",
     "serve-favicon": "^2.3.2",
     "sqlite3": "^3.1.8"
   },
@@ -27,6 +32,7 @@
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "supertest": "^1.2.0",
-    "supertest-as-promised": "^3.2.0"
+    "supertest-as-promised": "^3.2.0",
+    "webpack": "^3.8.1"
   }
 }
