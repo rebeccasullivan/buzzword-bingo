@@ -4,21 +4,23 @@
 		
 		{{#each blogPosts}}
 		<div class="card card-blog">
-			<img class="card-img-top" src="http://placehold.it/750x300">
+			<img class="card-img-top" src="{{this.fields.photo.fields.file.url}}">
 			<div class="card-body-blog blog-post">
 				<h4 class="card-title-blog">{{this.fields.title}}</h4>
 				<p class="card-text">{{this.fields.bodyCopy}}</p>
-				<a href="blog/{{this.fields.entrySlug}}" class="btn btn-primary">Read More &rarr;</a>
 			</div>
 			<div class="card-footer text-muted">
-			Posted on {{this.fields.datePublished}}
+				<div class="blog-footer-date">
+					<span>Posted on {{this.fields.friendlyDate}}</span>
+					<a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}" class="pull-right btn btn-primary btn-blog">Read More</a>
+				</div>	
 			</div>
 		</div>
 		{{/each}}
 	</div>
 	
 	<!-- Sidebar Widgets Column -->
-	<div class="col-sm-4">
+	<div class="col-sm-4 sidebar">
 	     <!-- Search Widget -->
 	     <div class="card card-blog">
 	       <h5 class="card-header">Search</h5>

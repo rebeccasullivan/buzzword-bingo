@@ -58,21 +58,24 @@ router.get('/bingo-squares', function (req, res) {
     });
 });
 
+
+// Get Contentful client
+var client = contentful.createClient({
+  accessToken: config.accessToken,
+  space: config.space
+}); 
+
 // Blog Routes
 router.get('/blog', function (req, res) {
-	// Get Contentful client
-	var client = contentful.createClient({
-	  accessToken: config.accessToken,
-	  space: config.space
-	}); 
-	
 	var blogPosts = [];
 	
 	// Get all Contentful entries
-	var entries = client.getEntries()
-	.then(function (entries) {
+	client.getEntries({
+		order: 'sys.createdAt'
+	}).then(function (entries) {
 	 	entries.items.forEach(function (entry) {
 		  	blogPosts.push(entry);
+			console.log("From /blog: " + entry.fields.photo.fields)
 	  	});
 	
 		// Send entries to handlebars template to display
@@ -83,14 +86,17 @@ router.get('/blog', function (req, res) {
 }); 
 
 
-router.get('/blog/:entrySlug', function (req, res) {
-	// Make API call
+router.get('/blog/:postId/:entrySlug', function (req, res) {
+	// Make API call to search for blog post
+	var entrySlug = req.params.entrySlug;
+	var postId = req.params.postId;
 	
-	
-	// Render blog layout with specific blog post elements
-	res.render('blog-post', {
-		entrySlug: req.params.entrySlug
-	})
+	client.getEntry(postId).then(function (entry) {
+		// Render blog layout with specific blog post elements
+		res.render('blog-post', {
+			post: entry
+		})
+	});
 });
 
 
