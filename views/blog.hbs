@@ -12,7 +12,7 @@
 			<div class="card-footer text-muted">
 				<div class="blog-footer-date">
 					<span>Posted on {{this.fields.friendlyDate}}</span>
-					<a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}" class="pull-right btn btn-primary btn-blog">Read More</a>
+					<a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}" class="pull-right btn btn-primary btn-blog-home">Read More</a>
 				</div>	
 			</div>
 		</div>
@@ -36,35 +36,19 @@
 
 	     <!-- Categories Widget -->
 	     <div class="card card-blog">
-	       <h5 class="card-header">Categories</h5>
+	       <h5 class="card-header">Tags</h5>
 	       <div class="card-body-blog">
 	         <div class="row">
-	           <div class="col-lg-6">
-	             <ul class="list-unstyled mb-0">
-	               <li>
-	                 <a href="#">Career</a>
+	           <div class="col-xs-12">
+	             <ul class="list-unstyled">
+				   {{#each tags}}
+				   <li>
+	                 {{this}}
 	               </li>
-	             </ul>
-	           </div>
-	           <div class="col-lg-6">
-	             <ul class="list-unstyled mb-0">
-	               <li>
-	                 <a href="#">JavaScript</a>
-	               </li>
-	               <li>
-	                 <a href="#">CSS</a>
-	               </li>
+				   {{/each}}
 	             </ul>
 	           </div>
 	         </div>
-	       </div>
-	     </div>
-
-	     <!-- Side Widget -->
-	     <div class="card card-blog">
-	       <h5 class="card-header">Side Widget</h5>
-	       <div class="card-body-blog">
-	         You can put anything you want inside of these side widgets. They are easy to use!
 	       </div>
 	     </div>
 	</div>

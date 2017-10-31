@@ -291,11 +291,14 @@ table {
 
 /* BLOG STYLES */
 .card-blog {
-	box-shadow: 0 0px 5px 0 rgba(0,0,0,.16), 0 0px 5px 0 rgba(0,0,0,.12) !important;
+	/* box-shadow: 0 0px 5px 0 rgba(0,0,0,.16), 0 0px 5px 0 rgba(0,0,0,.12) !important; */
+	box-shadow: none !important;
+	border: 1px solid rgba(0,0,0,.125);
 }
 .card-header {
 	padding: .75rem 1.25rem;
 	margin-bottom: 0;
+	margin-top: 0 !important;
 	background-color: rgba(0,0,0,.03);
 	border-bottom: 1px solid rgba(0,0,0,.125);
 }
@@ -325,7 +328,7 @@ table {
 }
 
 .sidebar {
-	padding-top: 45px;
+	padding-top: 55px;
 }
 
 .blog-footer-date {
@@ -334,11 +337,32 @@ table {
 	margin-top: 5px;
 }
 .btn-blog {
-	float: right;
+    margin-bottom: 2rem !important;
+    width: 100%;
 }
 
 .btn-blog:hover {
 	color: #e6e6e6 !important;
+}
+
+.blog-sidebar {
+	padding: 0;
+}
+.blog-post-body {
+	padding: 0 3rem 3rem 3rem !important;
+}
+.blog-post-body p {
+	line-height: 1.6 !important;
+}
+
+.btn-blog-home:hover {
+	color: #e6e6e6 !important;
+}
+
+.title-blog {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 20px;
 }
 
 /* ETC CONTENT */

@@ -1,3 +1,11 @@
+To Do:
+- Fix ordering of blog posts
+- Implement search feature
+- Fix tags on blog home page
+- Implement filtering by tag
+- Implement filtering by archive month?
+
+
 Blog Ideas:
 
 Culture fit - important, once you find it, you're more productive, you get more out of your career
@@ -9,24 +17,11 @@ Transferrable skills - making an argument out of your story/skills
 Soft skills
 Advice to bootcamp students
 
-"What Not to Say at a Recruiting Event: Perspective from the Other Side of the Table"
-Recently, I said yes to a last-minute volunteering opportunity to represent Hyland at a recruiting event.
+
+
+Done:
+- Skills a Bootcamp Doesn't Teach You (multiple parts)
+- What Not to Say at a Recruiting Event
 
 
 
-"Skills a Bootcamp Doesn't Teach You"
-As a recent (well, turning not-so-recent as the 1-year mark fades into the distance) bootcamp grad, I'm often asked by potential and current students what lessons I learned as I transitioned out of the bootcamp and into the "real world." 
-
-I will preface this post with a disclaimer that at Hyland, we're particularly spoiled in that we get a lot of leeway in the onboarding process. Even on my consulting team, where we're measured by our weekly utilization rate (the number of hours we bill), we're still given a cushion in ramping up those hours as we shadow other team members and get acclimated to projects. 
-
-That being said, the transition out of the safe bootcamp cocoon and into being responsible for troubleshooting production code as the sole developer on a project was not an easy one. I hear these sentiments echoed by many fellow grads and junior devs - people seem to agree that the first 3-6 (or even more) months in your first dev job can certainly be invigorating, but it can also be overwhelming and frustrating.
-
-If you've recently graduated or are about to soon, hopefully these tips will help supplement the bootcamp experience and ease your transition into that first, coveted dev job:
-
-1. Debugging/troubleshooting in a larger code base:
-
-2. Error handling: 
-
-3. Self-sufficiency:
-
-4. 

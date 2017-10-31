@@ -1,0 +1,44 @@
+
+"Skills a Bootcamp Doesn't Teach You"
+As a recent (well, turning not-so-recent as the 1-year mark fades into the distance) bootcamp grad, I'm often asked by potential and current students what lessons I learned as I transitioned out of the bootcamp and into the "real world." 
+
+I will preface this post with a disclaimer that at Hyland, we're particularly spoiled in that we get a lot of leeway in the onboarding process. Even on my consulting team, where we're measured by our weekly utilization rate (the number of hours we bill), we're still given a cushion in ramping up those hours as we shadow other team members and get acclimated to projects. 
+
+That being said, the transition out of the safe bootcamp cocoon and into being responsible for troubleshooting production code as the sole developer on a project was not an easy one. I hear these sentiments echoed by many fellow grads and junior devs - people seem to agree that the first 3-6 (or even more) months in your first dev job can certainly be invigorating, but it can also be overwhelming and frustrating.
+
+If you've recently graduated or are about to soon, hopefully these tips will help supplement the bootcamp experience and ease your transition into that first, coveted dev job:
+
+### Debugging/troubleshooting code in a larger system
+No matter how many capstone projects you complete with fellow bootcamp students, the experience of debugging a larger code base with multiple systems interacting in a tangle of different styles of code will be jarring. In an academic setting, it is hard (read: impossible) to mimic the architecture and complexity of a system with multiple layers. You will definitely face the challenge of staring an error message in the face and having to dissect exactly where the problem lies while thinking "I have no idea where the hell that message is coming from."
+
+#### Remedies: 
+- Observe how more senior colleagues (or, if your company has them, tech support reps) triage problems. Learn what tools they go to first and how they eliminate environmental factors one by one.
+- Get familiar with reading stack traces and learn how to find the root cause of an issue, not just its symptoms. The top-level error message can often be a red herring.
+- Contribute to open source projects or start to build your own. The beauty of open source projects is that they give you direct experience trying to understand someone else's train of thought. 
+
+### Error handling
+My bootcamp exposure to error handling could be summed up as: "Try-catch blocks? Sure, I guess you could use one of those." However, I can't stress enough the importance of learning where and how to appropriately throw or catch errors. It doesn't seem too important until you're faced with a customer with thousands of documents piling up in a system because your script blew up on a lousy null pointer.
+
+#### Remedies:
+- As you build your own projects, don't just gloss over the try-catch blocks in tutorials and think to yourself, "I'll deal with that later." Learn how to properly present errors to the user and how to elegantly let a script error out.
+- Learn to write meaningful error messages and implement (when appropriate) custom exception classes. Make them meaningful not just to you, but for the developer after you. 
+
+### Self-sufficiency
+OK, the bootcamp does teach this skill to some extent.
+
+The main point? Avoid being the employee who asks the developer next to her a question that's easily Googleable. I have a golden rule that if I'm going to ask a senior developer for his/her time, then the first page of Google results for the main topics I'm struggling with better come up purple.
+
+#### Remedies:
+- Learn the tricks of Googling for the best results. 
+- Documentation is your best friend. It can seem scary during the bootcamp, but as you learn more, it will become less intimidating and much more useful. Don't be afraid to go down the documentation rabbit hole - you will come up having learned a bunch.
+
+### Humility/knowing when to ask for help
+Sometimes self-sufficiency, Google mojo, and crossing your fingers just aren't enough. Especially if you're struggling with topics that are specific to your company's business domain, sometimes you can only go so far by yourself.
+
+As a new employee, asking for help can be a tumultuous situation rife with politics...you don't want to seem dumb, but you also don't want to bang your head against a problem just because you're too proud to ask someone.
+
+#### Remedies:
+- Develop relationships with colleagues away from the computer. Often people seem too busy to make small talk, but relationships are best built at "the water cooler," and people can appreciate small breaks throughout the day. Building common ground with a teammate can lead to a better working relationship.
+- If a colleague with valuable information seems unwilling or too busy to help, try to schedule time in a style that he/she prefers. 
+
+Navigating the post-bootcamp waters can be tricky. Hopefully with these tips in mind, you'll realize that the first dev job can be full of these uncertain moments for everyone, and that it's only temporary. 

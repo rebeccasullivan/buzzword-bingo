@@ -70,17 +70,25 @@ var client = contentful.createClient({
 router.get('/blog', function (req, res) {
 	var blogPosts = []
 	
+	
 	// Get all Contentful entries
 	client.getEntries({
 		order: 'sys.createdAt'
 	}).then(function (entries) {
-	 	entries.items.forEach(function (entry) {
+	 	var tags = new Set()
+		
+		entries.items.forEach(function (entry) {
 			blogPosts.push(entry)
+			entry.fields.tags.forEach(function (tag) {
+				tags.add(tag)
+			})
 	  	})
-	
+		
+		console.log(tags)
 		// Send entries to handlebars template to display
 	  	res.render('blog', {
-	  		blogPosts: blogPosts
+	  		blogPosts: blogPosts,
+			tags: tags
 	  	})
 	})
 })
@@ -92,7 +100,7 @@ router.get('/blog/:postId/:entrySlug', function (req, res) {
 	var postId = req.params.postId;
 	
 	client.getEntry(postId).then(function (entry) {
-		entry.bodyMarkdown = marked(entry.fields.bodyCopy)
+		entry.bodyHtml = marked(entry.fields.bodyCopy)
 		
 		// Render blog layout with specific blog post elements
 		res.render('blog-post', {
