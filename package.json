@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "test": "mocha",
     "dev": "nodemon ./bin/www",
-	"build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js"
   },
   "config": {
     "accessToken": "831f3318d3aba1f60e3bdc922eea842172b327cdee222faacf32e9314c86098a",
@@ -23,6 +23,7 @@
     "favicon": "0.0.2",
     "handlebars": "^4.0.10",
     "hbs": "^4.0.1",
+    "marked": "^0.3.6",
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
     "serve-favicon": "^2.3.2",

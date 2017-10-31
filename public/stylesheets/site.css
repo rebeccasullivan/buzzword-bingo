@@ -333,6 +333,13 @@ table {
 	width: 66%;
 	margin-top: 5px;
 }
+.btn-blog {
+	float: right;
+}
+
+.btn-blog:hover {
+	color: #e6e6e6 !important;
+}
 
 /* ETC CONTENT */
 @media (min-width: 768px) {
