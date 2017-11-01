@@ -7,7 +7,7 @@
 			<img class="card-img-top" src="{{this.fields.photo.fields.file.url}}">
 			<div class="card-body-blog blog-post">
 				<h4 class="card-title-blog">{{this.fields.title}}</h4>
-				<p class="card-text">{{this.fields.bodyCopy}}</p>
+				<p class="card-text-blog">{{this.fields.bodyCopy}}</p>
 			</div>
 			<div class="card-footer text-muted">
 				<div class="blog-footer-date">
@@ -19,10 +19,10 @@
 		{{/each}}
 	</div>
 	
-	<!-- Sidebar Widgets Column -->
 	<div class="col-sm-4 sidebar">
-	     <!-- Search Widget -->
-	     <div class="card card-blog">
+	     
+		 <!--
+		 <div class="card card-blog">
 	       <h5 class="card-header">Search</h5>
 	       <div class="card-body-blog">
 	         <div class="input-group">
@@ -33,8 +33,8 @@
 	         </div>
 	       </div>
 	     </div>
+	-->
 
-	     <!-- Categories Widget -->
 	     <div class="card card-blog">
 	       <h5 class="card-header">Tags</h5>
 	       <div class="card-body-blog">
@@ -43,7 +43,7 @@
 	             <ul class="list-unstyled">
 				   {{#each tags}}
 				   <li>
-	                 {{this}}
+					   {{this}}
 	               </li>
 				   {{/each}}
 	             </ul>

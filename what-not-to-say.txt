@@ -1,2 +1,20 @@
 "What Not to Say at a Recruiting Event: Perspective from the Other Side of the Table"
-Recently, I said yes to a last-minute volunteering opportunity to represent Hyland at a recruiting event.
+
+Over the summer, I said yes to a last-minute volunteering opportunity to represent Hyland at a recruiting event. It was a typical set-up, with a couple of us manning a booth and triaging a stream of job seekers, people generally interested in tech, and even some mayoral candidates (no, I'm not kidding).
+
+I had always followed the canned advice of how to behave at a recruiting fair as a candidate (look presentable, have copies of your resume handy, etc.), but being on the other side of the table reinforced why this kind of advice is repeated so often. 
+
+My colleague and I were both developers representing the company. Since we didn't have titles on our name badges, people approached us as if we were in HR. To me, that would've meant they would try to make a good impression. However, I got quite the grab bag of strange interactions with people.
+
+It may come as a shock to you, but the following are some behaviors that are repulsive to recruiters (or just enthusiastic volunteers like me):
+
+#### Standing Too Close: personal space is important. Enough said. 
+#### Personal Hygiene: closely related to the above point, make sure you shower since you'll be in close proximity.
+#### Overly-Aggressive Elevator Pitches: the employee on the other side of the table is a person, too. They want to have a conversation, not to be talked at. 
+#### Poor Preparation: the most frustrating question to hear is something that is easily Googleable..."What does this OnBase, wait - is it called Hyland - company do?" will not make you stand out as a candidate. 
+#### Not Asking Questions: on a related note, recruiting fairs are the time to ask those questions that you can't get through stalking, I mean, researching the company! Taking the time to ask thoughtful questions goes a looooooong way.
+#### Saying Absolutely Nothing: recruiters don't want to painfully struggle to string along a conversation that's dying. You should drive the interaction with good questions about the position you think you'd be the best fit for. A conversation has ended poorly if it closes with the recruiter saying "I'm not sure, but you can look at our current postings online and apply!"
+
+On a final note: recruiters' mailboxes are probably teeming with messages from eager candidates, but people who don't have to make hiring decisions (me, me!) can be a great source of information and, if you're lucky, give you the unfiltered truth about a company's culture, work/life balance, day-in-the-life, and the answers you're really looking for. Grab the low-hanging fruit of making that cold "call" on LinkedIn...you'd be suprised who bites and how much intel you'll gain.
+
+

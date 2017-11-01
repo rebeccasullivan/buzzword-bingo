@@ -303,11 +303,15 @@ table {
 	border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
+.list-unstyled {
+	text-align: center;
+}
+
 .card-body-blog {
 	padding: 1.5rem;
 }
 
-.card-text {
+.card-text-blog {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

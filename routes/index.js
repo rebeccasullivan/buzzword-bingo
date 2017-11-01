@@ -73,7 +73,8 @@ router.get('/blog', function (req, res) {
 	
 	// Get all Contentful entries
 	client.getEntries({
-		order: 'sys.createdAt'
+		content_type: 'blogPost',
+		order: '-sys.createdAt'
 	}).then(function (entries) {
 	 	var tags = new Set()
 		
@@ -84,11 +85,13 @@ router.get('/blog', function (req, res) {
 			})
 	  	})
 		
+		let tagArray = Array.from(tags)
+		
 		console.log(tags)
 		// Send entries to handlebars template to display
 	  	res.render('blog', {
 	  		blogPosts: blogPosts,
-			tags: tags
+			tags: tagArray
 	  	})
 	})
 })
