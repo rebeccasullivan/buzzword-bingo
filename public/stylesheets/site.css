@@ -28,7 +28,6 @@ body {
 	padding: 1rem;
 }
 
-
 @media (min-width: 500px) {
 	.visible-landscape-device {
 		display: block !important;
