@@ -135,12 +135,12 @@ footer a:visited {
     padding: 5%;
     
 }
-.table{
+.table {
     display:table;
     width:100%;
     height:100%;
 }
-.table-cell{
+.table-cell {
     display:table-cell;
     vertical-align:middle;
 }
