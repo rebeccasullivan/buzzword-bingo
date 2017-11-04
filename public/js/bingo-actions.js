@@ -2,8 +2,8 @@ $(document).ready(function() {
 	fillFreeSquare();
 
 	function fillFreeSquare() {
-		var $bingoGrid = $('#bingoCard').find('.table');
-		var $middleRow = $bingoGrid.find('tr:nth-child(3)');
+		var $bingoGrid = $('#bingoCard');
+		var $middleRow = $bingoGrid.find('.row:nth-child(3)');
 		var $middleSpace = $middleRow.find('td:nth-child(3)');
 		$middleSpace.addClass('checked');
 		var $middleDiv = $middleSpace.find('div');
@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$checkmarkImg.toggle();
 	}
 	
-	$('.bingoSquare').click(function() {
+	$('.square').click(function() {
 		addMark(this);
 		
 		var hasWon = false;
