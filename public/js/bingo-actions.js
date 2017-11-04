@@ -30,8 +30,16 @@ $(document).ready(function() {
 
 	function addMark(caller) {
 		var $checkmarkImg = $(caller).find('img');
-		$checkmarkImg.toggle();
-		$checkmarkImg.css("display", "inherit");
+
+		console.log('checkmark css: ' + $checkmarkImg.css('display'))
+
+		if ($checkmarkImg.css('display') != 'none') {
+			console.log('in display:inherit block')
+			$checkmarkImg.css("display", "none");
+		} else {
+			console.log('in else block')
+			$checkmarkImg.css("display", "inherit");
+		}
 		$checkmarkImg.parent().parent().toggleClass('checked');
 	}
 
