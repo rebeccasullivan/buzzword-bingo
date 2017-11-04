@@ -377,6 +377,17 @@ table {
 	margin-top: 4rem;
 }
 
+@media (max-width: 991px) {
+	.resume-dates {
+		margin-top: 0px;
+		margin-bottom: 3rem;
+	}
+	
+	.resume-dates:last-child {
+		margin-bottom: 0px;
+	}
+}
+
 #oboeHeadshot {
 	text-align: center;
 	width: 100%;
