@@ -4,11 +4,14 @@
 		wishing there was something better to do with your time?</p>
 	<p>Well, here's a bingo card to help you keep track of the buzzwords of the day...</p>
 
+	<!--
 	<div class="hidden-landscape-device">
 		<h4>Flip your device to landscape to play!</h4>
 	</div>
+	-->
 </div>
 
+<!--
 <div id="bingoCard" class="visible-landscape-device" style="display: none;">
 		<table class="table table-bordered">
 			{{#grouped_each 5 squares}}
@@ -22,4 +25,22 @@
 			    </tr>
 			{{/grouped_each}}
 		</table>
+</div>
+-->
+<div id="bingoCard" class="container visible-landscape-device">
+	{{#grouped_each 5 squares}}
+	<div class="row">
+		{{#each this}}
+		<div class="square">
+		    <div class="content">
+				<div class="table">
+					<div class="table-cell">
+						{{square_text}}
+					</div>
+				</div>
+		    </div>
+		</div>
+		{{/each}}
+	</div>
+	{{/grouped_each}}
 </div>

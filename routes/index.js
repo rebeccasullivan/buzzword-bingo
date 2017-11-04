@@ -40,26 +40,6 @@ router.get('/etc', function(req, res) {
 	res.render('etc')
 })
 
-// Logic for getting seed data for Bingo Squares from SQLite
-router.get('/bingo-squares', function (req, res) {	
-	var bingoSquares = [];
-    req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
-        if (err) {
-            console.error(err.message)
-        } else {
-			bingoSquares.push(row)
-        }
-    }, function onComplete(err, rowsReturned) {
-        console.info(rowsReturned)
-		
-		res.render('bingo', {
-			title: pageTitle,
-			squares: bingoSquares
-		})
-    })
-})
-
-
 // Get Contentful client
 var client = contentful.createClient({
   accessToken: config.accessToken,
@@ -112,6 +92,24 @@ router.get('/blog/:postId/:entrySlug', function (req, res) {
 	})
 })
 
+// Logic for getting seed data for Bingo Squares from SQLite
+router.get('/bingo-squares', function (req, res) {	
+	var bingoSquares = [];
+    req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
+        if (err) {
+            console.error(err.message)
+        } else {
+			bingoSquares.push(row)
+        }
+    }, function onComplete(err, rowsReturned) {
+        console.info(rowsReturned)
+		
+		res.render('bingo', {
+			title: pageTitle,
+			squares: bingoSquares
+		})
+    })
+})
 
 // Handlebars helper to group bingo squares in sets of 5 for rows
 Handlebars.registerHelper('grouped_each', function(every, context, options) {

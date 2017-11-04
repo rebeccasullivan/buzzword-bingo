@@ -115,23 +115,34 @@ footer a:visited {
 
 
 /* BINGO STYLES */
-
 .square {
     float:left;
     position: relative;
-    width: 15%;
-    padding-bottom : 15%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
+    width: 17%;
+    padding-bottom : 17%; /* = width for a 1:1 aspect ratio */
+    margin:.5%;
     background-color: #00566C;
     overflow:hidden;
 	color: white;
 	text-align: center;
 }
 
+@media (max-width: 767px) {
+	.content {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 575px) {
+	.content {
+		font-size: 8px;
+	}
+}
+
 .content {
-    position:absolute;
-    height:90%; /* = 100% - 2*5% padding */
-    width:90%; /* = 100% - 2*5% padding */
+    position: absolute;
+    height:100%; 
+    width:100%; 
     padding: 5%;
     
 }
@@ -145,36 +156,12 @@ footer a:visited {
     vertical-align:middle;
 }
 
-
-
-.bingoSquare {
-	display: flex;
-	float: left;
-	color: white;
-	width: 20%;
-	height: 130px;
-	border: 2px solid white !important;
-	background: #00566C;
-	text-align: center;
-	cursor: pointer;
-	justify-content: center;
-	align-items: center;
-}
-
 .checkmark {
     z-index: 10;
     width: 110px;
     opacity: 0.7;
     position: absolute;
 	display: none;
-}
-
-.bingoSquare:hover {
-	box-shadow: inset 0 0 30px #110736;
-}
-
-.bingoSquare div {
-	padding: 5px;
 }
 
 #btnRefresh {
@@ -201,13 +188,6 @@ footer a:visited {
 }
 
 #bingoCard {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 650px;
-	height: 650px;
-	margin: 0 auto;
-	margin-bottom: 20px;
 	margin-top: 30px;
 }
 
