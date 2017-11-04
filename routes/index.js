@@ -36,6 +36,10 @@ router.get('/teaching-resume', function(req, res) {
 	res.render('teaching-resume')
 })
 
+router.get('/summit-food-coalition', function(req, res) {
+  res.render('summit-food-coalition')
+})
+
 router.get('/etc', function(req, res) {
 	res.render('etc')
 })
@@ -49,24 +53,24 @@ var client = contentful.createClient({
 // Blog Routes
 router.get('/blog', function (req, res) {
 	var blogPosts = []
-	
-	
+
+
 	// Get all Contentful entries
 	client.getEntries({
 		content_type: 'blogPost',
 		order: '-sys.createdAt'
 	}).then(function (entries) {
 	 	var tags = new Set()
-		
+
 		entries.items.forEach(function (entry) {
 			blogPosts.push(entry)
 			entry.fields.tags.forEach(function (tag) {
 				tags.add(tag)
 			})
 	  	})
-		
+
 		let tagArray = Array.from(tags)
-		
+
 		console.log(tags)
 		// Send entries to handlebars template to display
 	  	res.render('blog', {
@@ -81,10 +85,10 @@ router.get('/blog/:postId/:entrySlug', function (req, res) {
 	// Make API call to search for blog post
 	var entrySlug = req.params.entrySlug;
 	var postId = req.params.postId;
-	
+
 	client.getEntry(postId).then(function (entry) {
 		entry.bodyHtml = marked(entry.fields.bodyCopy)
-		
+
 		// Render blog layout with specific blog post elements
 		res.render('blog-post', {
 			post: entry
@@ -93,7 +97,7 @@ router.get('/blog/:postId/:entrySlug', function (req, res) {
 })
 
 // Logic for getting seed data for Bingo Squares from SQLite
-router.get('/bingo-squares', function (req, res) {	
+router.get('/bingo-squares', function (req, res) {
 	var bingoSquares = [];
     req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT 25;', function (err, row) {
         if (err) {
@@ -103,7 +107,7 @@ router.get('/bingo-squares', function (req, res) {
         }
     }, function onComplete(err, rowsReturned) {
         console.info(rowsReturned)
-		
+
 		res.render('bingo', {
 			title: pageTitle,
 			squares: bingoSquares
