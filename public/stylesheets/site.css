@@ -156,13 +156,14 @@ footer a:visited {
 
 }
 .table {
-    display: table;
+    display: flex;
+		align-items: center;
     width: 100%;
     height: 100%;
 }
 .table-cell {
     display: flex;
-    vertical-align: middle;
+		width: 100%;
 }
 .table-cell div {
 		width: 100%;

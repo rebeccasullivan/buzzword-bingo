@@ -11,6 +11,7 @@ $(document).ready(function() {
 
 		var $checkmarkImg = $middleSpace.find('img');
 		$checkmarkImg.toggle();
+		$checkmarkImg.css("display", "inherit");
 	}
 
 	$('.square').click(function() {
@@ -30,12 +31,13 @@ $(document).ready(function() {
 	function addMark(caller) {
 		var $checkmarkImg = $(caller).find('img');
 		$checkmarkImg.toggle();
-		$checkmarkImg.parent('td').toggleClass('checked');
+		$checkmarkImg.css("display", "inherit");
+		$checkmarkImg.parent().parent().toggleClass('checked');
 	}
 
 	function evaluateRows() {
-		var $bingoGrid = $('#bingoCard').find('.table');
-		var $rows = $bingoGrid.find('> tbody > tr');
+		var $bingoCard = $('#bingoCard');
+		var $rows = $bingoCard.find('> .row');
 		var hasWon = false;
 
 		for (var i = 0; i < $rows.length; i++) {
@@ -48,7 +50,7 @@ $(document).ready(function() {
 
 	function isWinningRow(row) {
 		// Determines whether all 5 squares in row are checked
-		var $squares = $(row).find('td');
+		var $squares = $(row).find('.square');
 		var winningRow = true;
 
 		for (var i = 0; i < $squares.length; i++) {
@@ -60,14 +62,14 @@ $(document).ready(function() {
 	}
 
 	function evaluateColumns() {
-		var $bingoGrid = $('#bingoCard').find('.table');
-		var $rows = $bingoGrid.find('> tbody > tr');
+		var $bingoCard = $('#bingoCard');
+		var $rows = $bingoCard.find('.row');
 		var $columns = [[], [], [], [], []];
 		var hasWinningColumn = false;
 
 		// Create columns
 		for (var i = 0; i < $rows.length; i++) {
-			var $squares = $($rows[i]).find('td');
+			var $squares = $($rows[i]).find('.square');
 
 			for (var j = 0; j < $squares.length; j++) {
 				$columns[j].push($squares[j]);
@@ -79,6 +81,7 @@ $(document).ready(function() {
 				hasWinningColumn = true;
 			}
 		}
+		console.log('isWinningColumn = ' + hasWinningColumn);
 		return hasWinningColumn;
 	}
 
@@ -95,8 +98,8 @@ $(document).ready(function() {
 
 	function evaluateDiagonals() {
 		// Select bingo grid
-		var $bingoGrid = $('#bingoCard').find('.table');
-		var $rows = $bingoGrid.find('> tbody > tr');
+		var $bingoCard = $('#bingoCard');
+		var $rows = $bingoCard.find('.row');
 
 		// Create diagonal arrays
 		var upperLeftDiag = createUpperLeftDiag($rows);
@@ -113,7 +116,7 @@ $(document).ready(function() {
 	function createUpperLeftDiag(rows) {
 		var upperLeftDiag = [];
 		for (var i = 0, j = 0; i < rows.length; i++, j++) {
-			var $squares = $(rows[i]).find('td');
+			var $squares = $(rows[i]).find('.square');
 			upperLeftDiag.push($squares[j]);
 		}
 		return upperLeftDiag;
@@ -124,7 +127,7 @@ $(document).ready(function() {
 
 		// Start from lower left corner
 		for (var i = rows.length - 1, j = 0; i >= 0; i--, j++) {
-			var $squares = $(rows[i]).find('td');
+			var $squares = $(rows[i]).find('.square');
 			upperRightDiag.push($squares[j]);
 		}
 		return upperRightDiag;
