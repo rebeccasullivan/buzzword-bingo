@@ -51,11 +51,26 @@ router.get('/etc', function(req, res) {
 });
 
 function cache(req, res, next) {
-    redisClient.get(contentfulBlogKey, function (err, data) {
-        if (data != null) {
+    console.log('In cache function in index.js');
+
+    redisClient.get(contentfulBlogKey, function (err, entries) {
+        if (entries != null) {
+
+            var jsonEntries = JSON.parse(entries);
+            console.log(jsonEntries);
+            var tags = new Set();
+            var blogPosts = [];
+        		jsonEntries.items.forEach(function (entry) {
+        			blogPosts.push(entry);
+        			entry.fields.tags.forEach(function (tag) {
+        				tags.add(tag);
+        			});
+        	  });
+
+        		let tagArray = Array.from(tags);
             res.render('blog', {
-                blogPosts: data.entries,
-                tags: data.tags
+                blogPosts: blogPosts,
+                tags: tags
               });
         } else {
             next();
@@ -88,8 +103,9 @@ function getBlogPosts(req, res, next) {
 	  });
 
 		let tagArray = Array.from(tags);
+    var jsonStringEntries = JSON.stringify(entries);
 
-    client.setex(contentfulBlogKey, 172800, entries);
+    redisClient.setex(contentfulBlogKey, 60, jsonStringEntries);
 
     // Send entries to handlebars template to display
 	  res.render('blog', {
