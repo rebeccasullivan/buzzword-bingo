@@ -115,9 +115,29 @@ footer a:visited {
 
 
 /* BINGO STYLES */
+@media (max-width: 767px) {
+	.btn-container {
+		margin-top: 2rem;
+	}
+	.bingo-intro {
+		margin-bottom: 0px !important;
+	}
+}
+
 #bingoCard .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
+}
+.bingo-intro {
+	margin-bottom: 3rem;
+}
+
+.btn-container {
+	text-align: center;
+}
+
+.bingo .row {
+	margin-top: 2rem;
 }
 
 .square {

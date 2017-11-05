@@ -14,6 +14,18 @@ $(document).ready(function() {
 		$checkmarkImg.css("display", "inherit");
 	}
 
+	$('#bingo-single-btn').click(function() {
+		var $bingoCard = $('#bingoCard');
+
+		if ($bingoCard.css('display') != 'none') {
+			$bingoCard.css("display", "none");
+			$('#bingo-single-btn').html("Show me a card - I'll play by myself!");
+		} else {
+			$bingoCard.show();
+			$('#bingo-single-btn').html('Hide Card');
+		}
+	});
+
 	$('.square').click(function() {
 		addMark(this);
 

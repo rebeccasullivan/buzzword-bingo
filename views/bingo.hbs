@@ -1,28 +1,38 @@
 
-<div>
+<div class="bingo-intro">
 	<p>Ever sit on a conference call all day, twiddling your thumbs,
 		wishing there was something better to do with your time?</p>
-	<p>Well, here's a bingo card to help you keep track of the buzzwords of the day...</p>
+	<p>Well, here's a bingo game to help you keep track of the buzzwords of the day...</p>
 
 </div>
 
-<div id="bingoCard">
-	{{#grouped_each 5 squares}}
 	<div class="row">
-		{{#each this}}
-		<div class="square">
-		    <div class="content">
-					<img class="checkmark" src="/checkmark.png" />
-					<div class="table">
-						<div class="table-cell">
-							<div>
-									{{square_text}}
-							</div>
-						</div>
-					</div>
-		    </div>
+		<div class="col-sm-6 btn-container">
+			<button class="btn btn-primary" id="bingo-games-btn">Let me join or start a live game!</button>
 		</div>
-		{{/each}}
+
+		<div class="col-sm-6 btn-container">
+			<button class="btn btn-primary" id="bingo-single-btn">Show me a card - I'll play by myself!</button>
+		</div>
 	</div>
-	{{/grouped_each}}
-</div>
+
+	<div id="bingoCard" style="display: none">
+		{{#grouped_each 5 squares}}
+		<div class="row">
+			{{#each this}}
+				<div class="square">
+				    <div class="content">
+							<img class="checkmark" src="/checkmark.png" />
+							<div class="table">
+								<div class="table-cell">
+									<div>
+											{{square_text}}
+									</div>
+								</div>
+							</div>
+				    </div>
+				</div>
+			{{/each}}
+		</div>
+		{{/grouped_each}}
+	</div>
