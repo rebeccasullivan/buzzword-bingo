@@ -8,9 +8,8 @@ var config = require('../package.json').config || {};
 var marked = require('marked');
 var redis = require('redis');
 var bodyParser = require('body-parser');
-var REDIS_PORT = process.env.REDIS_PORT;
 
-var redisClient = redis.createClient(REDIS_PORT);
+var redisClient = redis.createClient(process.env.REDIS_URL);
 var contentfulBlogKey = 'contentful-blog-posts';
 
 router.use(bodyParser.json());
