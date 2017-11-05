@@ -14,16 +14,23 @@ $(document).ready(function() {
 		$checkmarkImg.css("display", "inherit");
 	}
 
-	$('#bingo-single-btn').click(function() {
-		var $bingoCard = $('#bingoCard');
+	$('#bingo-custom-btn').click(function() {
+		$('#bingoCardInput').show();
+		$('#bingo-back-container').show();
+		$('#bingo-btns').hide();
+	});
 
-		if ($bingoCard.css('display') != 'none') {
-			$bingoCard.css("display", "none");
-			$('#bingo-single-btn').html("Show me a card - I'll play by myself!");
-		} else {
-			$bingoCard.show();
-			$('#bingo-single-btn').html('Hide Card');
-		}
+	$('#bingo-back-btn').click(function() {
+		$('#bingo-btns').show();
+		$('#bingoCard').hide();
+		$('#bingo-back-container').hide();
+		$('#bingoCardInput').hide();
+	});
+
+	$('#bingo-single-btn').click(function() {
+		$('#bingoCard').show();
+		$('#bingo-back-container').show();
+		$('#bingo-btns').hide();
 	});
 
 	$('.square').click(function() {
