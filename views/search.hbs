@@ -1,0 +1,24 @@
+<h3>Search Results</h3>
+
+
+
+<div class="row">
+  {{#if blogPosts}}
+    <div class="col-sm-9">
+      {{#each blogPosts}}
+        <div class="card-body-blog blog-post">
+          <h4 class="card-title-blog">{{this.fields.title}}</h4>
+          <p class="card-text-blog">{{this.fields.bodyCopy}}</p>
+          <a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}" class="btn btn-primary btn-blog-home">View Post</a>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="col-sm-9">
+      <p>No results found.</p>
+    </div>
+  {{/if}}
+  <div class="col-sm-3">
+    <a href="/blog" class="btn btn-primary btn-blog">Back to All Posts</a>
+  </div>
+</div>
