@@ -1,11 +1,17 @@
-var express = require('express')
-var Handlebars = require('hbs')
-var router = express.Router()
-var pageTitle = "Rebecca Sullivan"
-var Cosmic = require('cosmicjs')
-var contentful = require('contentful')
-var config = require('../package.json').config || {}
-var marked = require('marked')
+var express = require('express');
+var Handlebars = require('hbs');
+var router = express.Router();
+var pageTitle = "Rebecca Sullivan";
+var request = require('superagent');
+var Cosmic = require('cosmicjs');
+var contentful = require('contentful');
+var config = require('../package.json').config || {};
+var marked = require('marked');
+var redis = require('redis');
+var REDIS_PORT = process.env.REDIS_PORT;
+
+var redisClient = redis.createClient(REDIS_PORT);
+var contentfulBlogKey = 'contentful-blog-posts';
 
 // Basic GET routes for all pages
 router.get('/', function (req, res) {
@@ -42,44 +48,59 @@ router.get('/summit-food-coalition', function(req, res) {
 
 router.get('/etc', function(req, res) {
 	res.render('etc')
-})
+});
 
-// Get Contentful client
-var client = contentful.createClient({
-  accessToken: config.accessToken,
-  space: config.space
-})
+function cache(req, res, next) {
+    redisClient.get(contentfulBlogKey, function (err, data) {
+        if (data != null) {
+            res.render('blog', {
+                blogPosts: data.entries,
+                tags: data.tags
+              });
+        } else {
+            next();
+        }
+    });
+}
 
-// Blog Routes
-router.get('/blog', function (req, res) {
-	var blogPosts = []
+function getBlogPosts(req, res, next) {
+  // Get Contentful client
+  var contentfulClient = contentful.createClient({
+    accessToken: config.accessToken,
+    space: config.space
+  });
 
+  var blogPosts = [];
 
 	// Get all Contentful entries
-	client.getEntries({
+	contentfulClient.getEntries({
 		content_type: 'blogPost',
 		order: '-sys.createdAt'
 	}).then(function (entries) {
-	 	var tags = new Set()
+
+    var tags = new Set();
 
 		entries.items.forEach(function (entry) {
-			blogPosts.push(entry)
+			blogPosts.push(entry);
 			entry.fields.tags.forEach(function (tag) {
-				tags.add(tag)
-			})
-	  	})
+				tags.add(tag);
+			});
+	  });
 
-		let tagArray = Array.from(tags)
+		let tagArray = Array.from(tags);
 
-		console.log(tags)
-		// Send entries to handlebars template to display
-	  	res.render('blog', {
+    client.setex(contentfulBlogKey, 172800, entries);
+
+    // Send entries to handlebars template to display
+	  res.render('blog', {
 	  		blogPosts: blogPosts,
-			tags: tagArray
-	  	})
-	})
-})
+			  tags: tagArray
+	  });
+	});
+}
 
+// Blog Routes
+router.get('/blog', cache, getBlogPosts);
 
 router.get('/blog/:postId/:entrySlug', function (req, res) {
 	// Make API call to search for blog post

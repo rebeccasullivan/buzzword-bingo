@@ -26,8 +26,12 @@
     "marked": "^0.3.6",
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
+    "redis": "^2.8.0",
+    "redis-json": "^1.0.2",
+    "redis-server": "^1.1.0",
     "serve-favicon": "^2.3.2",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "superagent": "^3.8.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
