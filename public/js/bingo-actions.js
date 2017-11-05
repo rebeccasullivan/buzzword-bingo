@@ -14,6 +14,18 @@ $(document).ready(function() {
 		$checkmarkImg.css("display", "inherit");
 	}
 
+  $('#buzzwordSubmit').click(function() {
+			console.log('in buzzwordSubmit click event');
+			if ($('#addBuzzword').val().length > 0) {
+				$('#buzzwords').append('<div><a href="#" class="item">X</a> ' + $('#addBuzzword').val() + '</div>');
+			}
+	});
+
+  $(document).on('click','.item',function() {
+			console.log('in .item click event');
+      $(this).parent().remove();
+  });
+
 	$('#bingo-custom-btn').click(function() {
 		$('#bingoCardInput').show();
 		$('#bingo-back-container').show();

@@ -115,6 +115,13 @@ footer a:visited {
 
 
 /* BINGO STYLES */
+#addBuzzword {
+	width: 50%;
+}
+#bingoCardInput {
+	margin-top: 3rem;
+}
+
 @media (max-width: 767px) {
 	.btn-container {
 		margin-top: 2rem;

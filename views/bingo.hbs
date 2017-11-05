@@ -26,15 +26,13 @@
 	</div>
 </div>
 
-<div id="bingoCardInput" class="col-xs-12" style="display: none;">
-	<!-- we add to our foodList from the value of the following input -->
-	<input type="text" placeholder="buzzword" id="addBuzzword" />
-
-	<!-- we call addToFood(); through the following button  -->
-	<input type="submit" value="Add Buzzword" onClick="addBuzzword();">
-
-	<!-- The list of food is displayed in the following div -->
-	<div id="buzzwords"></div>
+<div class="row">
+	<div id="bingoCardInput" class="col-xs-12" style="display: none;">
+		<input type="text" placeholder="Enter a buzzword or phrase..." id="addBuzzword" />
+		<input type="submit" id="buzzwordSubmit" value="Add Buzzword" />
+		<!-- List of buzzwords is displayed here -->
+		<div id="buzzwords"></div>
+	</div>
 </div>
 
 <div id="bingoCard" style="display: none;">
