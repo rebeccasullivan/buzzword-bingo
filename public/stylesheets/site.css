@@ -116,10 +116,23 @@ footer a:visited {
 
 /* BINGO STYLES */
 #addBuzzword {
-	width: 50%;
+	width: 40%;
+}
+#buzzwords {
+	width: 40%;
+	margin-top: 2rem;
 }
 #bingoCardInput {
 	margin-top: 3rem;
+}
+#removeBuzzwords {
+	margin-top: 1rem;
+}
+#buzzwordSubmit {
+	margin-left: .5rem;
+}
+#bingo-btns .btn {
+	margin: 1%;
 }
 
 @media (max-width: 767px) {

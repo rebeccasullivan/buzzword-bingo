@@ -7,15 +7,11 @@
 </div>
 
 <div class="row" id="bingo-btns">
-	<div class="col-sm-4 btn-container">
+	<div class="col-xs-12 btn-container">
 		<button class="btn btn-primary" id="bingo-games-btn">Let me join or start a live game</button>
-	</div>
 
-	<div class="col-sm-4 btn-container">
 		<button class="btn btn-primary" id="bingo-single-btn">Show me a card - I'll play by myself</button>
-	</div>
-
-	<div class="col-sm-4 btn-container">
+	
 		<button class="btn btn-primary" id="bingo-custom-btn">I want to generate a custom card</button>
 	</div>
 </div>
@@ -31,7 +27,11 @@
 		<input type="text" placeholder="Enter a buzzword or phrase..." id="addBuzzword" />
 		<input type="submit" id="buzzwordSubmit" value="Add Buzzword" />
 		<!-- List of buzzwords is displayed here -->
-		<div id="buzzwords"></div>
+
+		<form>
+			<select id="buzzwords" size="10" multiple></select><br>
+			<button type="button" id="removeBuzzwords">Remove Selected</button>
+		</form>
 	</div>
 </div>
 

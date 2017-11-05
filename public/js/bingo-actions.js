@@ -17,8 +17,13 @@ $(document).ready(function() {
   $('#buzzwordSubmit').click(function() {
 			console.log('in buzzwordSubmit click event');
 			if ($('#addBuzzword').val().length > 0) {
-				$('#buzzwords').append('<div><a href="#" class="item">X</a> ' + $('#addBuzzword').val() + '</div>');
+				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
 			}
+	});
+
+	$('#removeBuzzwords').click(function() {
+		console.log('in removeBuzzwords click event');
+		$("#buzzwords option:selected").remove();
 	});
 
   $(document).on('click','.item',function() {
