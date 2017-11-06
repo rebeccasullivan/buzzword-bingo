@@ -9,9 +9,7 @@
 <div class="row" id="bingo-btns">
 	<div class="col-xs-12 btn-container">
 		<button class="btn btn-primary" id="bingo-games-btn">Let me join or start a live game</button>
-
 		<button class="btn btn-primary" id="bingo-single-btn">Show me a card - I'll play by myself</button>
-	
 		<button class="btn btn-primary" id="bingo-custom-btn">I want to generate a custom card</button>
 	</div>
 </div>
@@ -22,16 +20,29 @@
 	</div>
 </div>
 
-<div class="row">
-	<div id="bingoCardInput" class="col-xs-12" style="display: none;">
-		<input type="text" placeholder="Enter a buzzword or phrase..." id="addBuzzword" />
-		<input type="submit" id="buzzwordSubmit" value="Add Buzzword" />
-		<!-- List of buzzwords is displayed here -->
-
+<div id="bingoCardInput" class="row" style="display: none;">
+	<div  class="col-xs-6">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Enter a buzzword or phrase..." id="addBuzzword" />
+			<span class="input-group-btn">
+				<input type="submit" class="btn btn-secondary" id="buzzwordSubmit" value="Add Buzzword" />
+			</span>
+			<!-- List of buzzwords is displayed here -->
+		</div>
 		<form>
 			<select id="buzzwords" size="10" multiple></select><br>
-			<button type="button" id="removeBuzzwords">Remove Selected</button>
+			<button type="button" class="btn btn-secondary" id="removeBuzzwords">Remove Selected</button>
 		</form>
+	</div>
+	<div class="col-xs-6">
+		<p>Stuck? Select a number of pre-generated buzzwords to add to your list:</p>
+
+		<select id="numAdditionalBuzzwords">
+			{{#for 1 31 1}}
+				<option>{{this}}</option>
+			{{/for}}
+		</select>
+		<button type="button" class="btn btn-secondary" id="addBuzzwords">Add!</button>
 	</div>
 </div>
 

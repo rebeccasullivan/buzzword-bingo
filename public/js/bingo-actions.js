@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	fillFreeSquare();
 
 	function fillFreeSquare() {
@@ -14,20 +15,35 @@ $(document).ready(function() {
 		$checkmarkImg.css("display", "inherit");
 	}
 
+	$('#addBuzzwords').click(function() {
+		var numBuzzwords = $('#numAdditionalBuzzwords option:selected').val();
+		console.log('numBuzzwords: ' + numBuzzwords);
+
+		$.ajax({
+			url: "/buzzwords?number=" + numBuzzwords,
+			success: function(result) {
+				// Add results to select box
+				result.forEach(function(buzzword) {
+					var text = buzzword.square_text;
+					console.log(text);
+					$('#buzzwords').append('<option> ' + text + '</option>');
+				})
+			}
+		});
+	});
+
+
   $('#buzzwordSubmit').click(function() {
-			console.log('in buzzwordSubmit click event');
 			if ($('#addBuzzword').val().length > 0) {
 				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
 			}
 	});
 
 	$('#removeBuzzwords').click(function() {
-		console.log('in removeBuzzwords click event');
 		$("#buzzwords option:selected").remove();
 	});
 
   $(document).on('click','.item',function() {
-			console.log('in .item click event');
       $(this).parent().remove();
   });
 
