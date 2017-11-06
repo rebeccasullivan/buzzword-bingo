@@ -122,12 +122,10 @@ footer a:visited {
 #bingoCardInput {
 	margin-top: 3rem;
 }
-#removeBuzzwords {
-	margin-top: 1rem;
-}
 #bingo-btns .btn {
 	margin: 1%;
 }
+
 
 @media (max-width: 767px) {
 	.btn-container {
@@ -135,6 +133,12 @@ footer a:visited {
 	}
 	.bingo-intro {
 		margin-bottom: 0px !important;
+	}
+	.generateBuzzwords {
+		margin-top: 3rem;
+	}
+	.generateBuzzwords .input-group {
+		width: 40%;
 	}
 }
 

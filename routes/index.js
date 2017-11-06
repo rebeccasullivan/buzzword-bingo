@@ -200,7 +200,7 @@ router.get('/buzzwords', function (req, res) {
       if (err) {
           console.error(err.message)
       } else {
-		  bingoSquares.push(row)
+		      bingoSquares.push(row)
       }
   }, function onComplete(err, rowsReturned) {
 		    res.send(bingoSquares);

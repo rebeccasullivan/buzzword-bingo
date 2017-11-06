@@ -15,6 +15,20 @@ $(document).ready(function() {
 		$checkmarkImg.css("display", "inherit");
 	}
 
+	function checkBuzzwordCount() {
+		var numBuzzwords = $('#buzzwords option').length;
+		console.log(numBuzzwords);
+		if (numBuzzwords < 30) {
+			$('#generateCardBtn').hide();
+		} else {
+			$('#generateCardBtn').show();
+		}
+	}
+
+	$('#generateCardBtn').click(function() {
+		// Generate card!
+	});
+
 	$('#addBuzzwords').click(function() {
 		var numBuzzwords = $('#numAdditionalBuzzwords option:selected').val();
 		console.log('numBuzzwords: ' + numBuzzwords);
@@ -25,22 +39,23 @@ $(document).ready(function() {
 				// Add results to select box
 				result.forEach(function(buzzword) {
 					var text = buzzword.square_text;
-					console.log(text);
 					$('#buzzwords').append('<option> ' + text + '</option>');
 				})
+				checkBuzzwordCount();
 			}
 		});
 	});
-
 
   $('#buzzwordSubmit').click(function() {
 			if ($('#addBuzzword').val().length > 0) {
 				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
 			}
+			checkBuzzwordCount();
 	});
 
 	$('#removeBuzzwords').click(function() {
 		$("#buzzwords option:selected").remove();
+		checkBuzzwordCount();
 	});
 
   $(document).on('click','.item',function() {
