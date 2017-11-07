@@ -17,7 +17,6 @@ $(document).ready(function() {
 
 	function checkBuzzwordCount() {
 		var numBuzzwords = $('#buzzwords option').length;
-		console.log(numBuzzwords);
 		if (numBuzzwords < 30) {
 			$('#generateCardBtn').hide();
 		} else {
@@ -41,15 +40,14 @@ $(document).ready(function() {
 	});
 
 	$('#generateCardBtn').click(function() {
-		// Generate card!
+		// Get buzzwords from user-input list
 		var buzzwords = [];
 
 		$("#buzzwords option").each(function() {
 			buzzwords.push(this.innerText);
 		});
-		console.log('buzzwords before shuffle: ' + buzzwords)
 
-		// Shuffle buzzwords
+		// Shuffle buzzwords and grab top 25
 		buzzwords.sort(function() { return 0.5 - Math.random() });
 		buzzwords = buzzwords.slice(0, 25);
 
@@ -63,7 +61,6 @@ $(document).ready(function() {
 
 	$('#addBuzzwords').click(function() {
 		var numBuzzwords = $('#numAdditionalBuzzwords option:selected').val();
-		console.log('numBuzzwords: ' + numBuzzwords);
 
 		$.ajax({
 			url: "/buzzwords?number=" + numBuzzwords,
@@ -90,10 +87,6 @@ $(document).ready(function() {
 		checkBuzzwordCount();
 	});
 
-  $(document).on('click','.item',function() {
-      $(this).parent().remove();
-  });
-
 	$('#bingo-custom-btn').click(function() {
 		$('#bingoCardInput').show();
 		$('#bingo-back-container').show();
@@ -113,7 +106,8 @@ $(document).ready(function() {
 		$('#bingo-btns').hide();
 	});
 
-	$('.square').click(function() {
+	$(document).on('click','.square',function() {
+		console.log('in .square click event');
 		addMark(this);
 
 		var hasWon = false;
