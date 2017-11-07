@@ -3,7 +3,7 @@ $(document).ready(function() {
 	fillFreeSquare();
 
 	function fillFreeSquare() {
-		var $bingoGrid = $('#bingoCard');
+		var $bingoGrid = $('.bingoCard');
 		var $middleRow = $bingoGrid.find('.row:nth-child(3)');
 		var $middleSpace = $middleRow.find('.square:nth-child(3)');
 		$middleSpace.addClass('checked');
@@ -25,8 +25,40 @@ $(document).ready(function() {
 		}
 	}
 
+	Handlebars.registerHelper('grouped_each', function(every, context, options) {
+	    var out = "", subcontext = [], i;
+	    if (context && context.length > 0) {
+	        for (i = 0; i < context.length; i++) {
+	            if (i > 0 && i % every === 0) {
+	                out += options.fn(subcontext)
+	                subcontext = []
+	            }
+	            subcontext.push(context[i])
+	        }
+	        out += options.fn(subcontext)
+	    }
+	    return out
+	});
+
 	$('#generateCardBtn').click(function() {
 		// Generate card!
+		var buzzwords = [];
+
+		$("#buzzwords option").each(function() {
+			buzzwords.push(this.innerText);
+		});
+		console.log('buzzwords before shuffle: ' + buzzwords)
+
+		// Shuffle buzzwords
+		buzzwords.sort(function() { return 0.5 - Math.random() });
+		buzzwords = buzzwords.slice(0, 25);
+
+		// Compile template for bingo card and add buzzwords from list
+		var template = $('#bingoCardTemplate').html();
+		var compiledTemplate = Handlebars.compile(template);
+		var testHtml = compiledTemplate({buzzwords: buzzwords});
+		$('#customBingoCard').html(testHtml);
+		fillFreeSquare();
 	});
 
 	$('#addBuzzwords').click(function() {
