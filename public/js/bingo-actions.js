@@ -54,8 +54,8 @@ $(document).ready(function() {
 		// Compile template for bingo card and add buzzwords from list
 		var template = $('#bingoCardTemplate').html();
 		var compiledTemplate = Handlebars.compile(template);
-		var testHtml = compiledTemplate({buzzwords: buzzwords});
-		$('#customBingoCard').html(testHtml);
+		var html = compiledTemplate({buzzwords: buzzwords});
+		$('#customBingoCard').html(html);
 		fillFreeSquare();
 	});
 
@@ -71,6 +71,28 @@ $(document).ready(function() {
 					$('#buzzwords').append('<option> ' + text + '</option>');
 				})
 				checkBuzzwordCount();
+			}
+		});
+	});
+
+	$('#bingo-single-btn').click(function() {
+		$.ajax({
+			url: "/buzzwords?number=25",
+			success: function(result) {
+				var buzzwords = [];
+
+				result.forEach(function(buzzword) {
+					buzzwords.push(buzzword.square_text);
+				});
+				console.log(buzzwords);
+
+				// Compile template for bingo card and add buzzwords from list
+				var template = $('#bingoCardTemplate').html();
+				var compiledTemplate = Handlebars.compile(template);
+				var html = compiledTemplate({buzzwords: buzzwords});
+				$('#defaultBingoCard').html(html);
+				$('#defaultBingoCard').show();
+				fillFreeSquare();
 			}
 		});
 	});
@@ -98,6 +120,10 @@ $(document).ready(function() {
 		$('#bingoCard').hide();
 		$('#bingo-back-container').hide();
 		$('#bingoCardInput').hide();
+
+		// Empty bingo cards that were generated
+		$('#defaultBingoCard').empty();
+		$('#customBingoCard').empty();
 	});
 
 	$('#bingo-single-btn').click(function() {
@@ -111,12 +137,10 @@ $(document).ready(function() {
 		addMark(this);
 
 		var hasWon = false;
+		var $bingoCard = $(this).parent().parent();
+		console.log('$bingoCard: ' + $bingoCard);
 
-		if (evaluateRows() || evaluateColumns() || evaluateDiagonals()) {
-			hasWon = true;
-		}
-
-		if (hasWon) {
+		if (isWinningCard($bingoCard)) {
 			alert("You've won!");
 		}
 	});
@@ -132,8 +156,11 @@ $(document).ready(function() {
 		$checkmarkImg.parent().parent().toggleClass('checked');
 	}
 
-	function evaluateRows() {
-		var $bingoCard = $('#bingoCard');
+	function isWinningCard($bingoCard) {
+		return hasWinningRow($bingoCard) || hasWinningColumn($bingoCard) || hasWinningDiagonal($bingoCard);
+	}
+
+	function hasWinningRow($bingoCard) {
 		var $rows = $bingoCard.find('> .row');
 		var hasWon = false;
 
@@ -158,8 +185,7 @@ $(document).ready(function() {
 		return winningRow;
 	}
 
-	function evaluateColumns() {
-		var $bingoCard = $('#bingoCard');
+	function hasWinningColumn($bingoCard) {
 		var $rows = $bingoCard.find('.row');
 		var $columns = [[], [], [], [], []];
 		var hasWinningColumn = false;
@@ -193,9 +219,8 @@ $(document).ready(function() {
 		return isWinningArray;
 	}
 
-	function evaluateDiagonals() {
+	function hasWinningDiagonal($bingoCard) {
 		// Select bingo grid
-		var $bingoCard = $('#bingoCard');
 		var $rows = $bingoCard.find('.row');
 
 		// Create diagonal arrays
