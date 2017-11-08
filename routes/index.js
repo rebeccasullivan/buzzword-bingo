@@ -193,7 +193,6 @@ router.get('/bingo-squares', function (req, res) {
 
 router.get('/buzzwords', function (req, res) {
   var numBuzzwords = req.query.number;
-  console.log('numBuzzwords in index.js: ' + numBuzzwords);
   var bingoSquares = [];
 
   req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT ' + numBuzzwords + ';', function (err, row) {
@@ -205,6 +204,10 @@ router.get('/buzzwords', function (req, res) {
   }, function onComplete(err, rowsReturned) {
 		    res.send(bingoSquares);
   });
+});
+
+router.get('/bingo-games', function (req, res) {
+  res.render('bingo-games');
 });
 
 // Handlebars helper for basic for loop
