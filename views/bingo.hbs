@@ -1,28 +1,73 @@
 
-<div>
+<div class="bingo-intro">
 	<p>Ever sit on a conference call all day, twiddling your thumbs,
-		wishing there was something better to do with your time?</p>
-	<p>Well, here's a bingo card to help you keep track of the buzzwords of the day...</p>
-
+		wishing there was something better to do with your time? Well,
+		here's a bingo game to help you keep track of the buzzwords of
+		the day...</p>
 </div>
 
-<div id="bingoCard">
-	{{#grouped_each 5 squares}}
-	<div class="row">
-		{{#each this}}
-		<div class="square">
-		    <div class="content">
-					<img class="checkmark" src="/checkmark.png" />
-					<div class="table">
-						<div class="table-cell">
-							<div>
-									{{square_text}}
-							</div>
-						</div>
-					</div>
-		    </div>
-		</div>
-		{{/each}}
+<!-- Initial Button Options -->
+<div class="row" id="bingo-btns">
+	<div class="col-xs-12 btn-container">
+		<button class="btn btn-primary" id="bingo-games-btn" style="display: none;">Let me join or start a live game</button>
+		<button class="btn btn-primary" id="bingo-single-btn">Show me a card!</button>
+		<button class="btn btn-primary" id="bingo-custom-btn">I'm feeling creative...let me enter my own buzzwords!</button>
 	</div>
-	{{/grouped_each}}
+</div>
+
+<!-- Back button (replaces initial options) -->
+<div class="row" style="display: none;" id="bingo-back-container">
+	<div class="btn-container">
+		<button class="btn btn-primary" id="bingo-back-btn">Go Back</button>
+	</div>
+</div>
+
+<!-- One-off card generation -->
+<div id="bingoCardInput"style="display: none;">
+	<div>
+		<p>Use the form below to create a set of buzzwords from which to generate a bingo card.
+		You must have at least 30 entries so that there's an element of randomness when generating
+		the card!</p>
+	</div>
+	<div class="row">
+		<div  class="col-sm-8">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Enter a buzzword or phrase..." id="addBuzzword" />
+				<span class="input-group-btn">
+					<input type="submit" class="btn btn-default" id="buzzwordSubmit" value="Add Buzzword" />
+				</span>
+			</div>
+
+			<form>
+				<select class="form-control" id="buzzwords" size="10" multiple></select><br>
+				<button type="button" class="btn btn-default" id="removeBuzzwords">Remove Selected</button>
+				<button type="button" class="btn btn-success pull-right" id="generateCardBtn" style="display: none;">Generate Card!</button>
+			</form>
+		</div>
+		<div class="col-sm-4">
+			<div class="row generateBuzzwords">
+				<div class="col-sm-12">
+					<p>Stuck? Select a number of pre-generated buzzwords to add:</p>
+				</div>
+				<div class="col-sm-12">
+					<div class="input-group">
+						<select class="form-control"id="numAdditionalBuzzwords">
+							{{#for 1 31 1}}
+								<option>{{this}}</option>
+							{{/for}}
+						</select>
+						<span class="input-group-btn">
+							<input type="submit" class="btn btn-default" id="addBuzzwords" value="Add!" />
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bingoCard" id="customBingoCard">
+	</div>
+</div>
+
+<div class="bingoCard" id="defaultBingoCard" style="display: none;">
 </div>

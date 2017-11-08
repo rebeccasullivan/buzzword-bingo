@@ -14,14 +14,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{title}}</title>
+    <title>Rebecca Sullivan</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://unpkg.com/contentful@5.0.1/dist/contentful.browser.min.js"></script>
 	<script src="https://use.fontawesome.com/173f2c7310.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src='/js/actions.js'></script>
-	<script src='/js/bingo-actions.js'></script>
-	<script src='/js/blog-actions.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+  <script src='/js/bingo-actions.js'></script>
     <link id="mainStyle" rel='stylesheet' type="text/css" href='/stylesheets/site.css'/>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,6 +30,7 @@
   </head>
 
   <body>
+
 	  <div class="container">
 		<!-- Static navbar -->
         <nav class="navbar navbar-default">
@@ -92,6 +93,26 @@
 	</div>
 	<!-- Latest compiled and minified JavaScript -->
 	<script id="bootstrap" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script id="bingoCardTemplate" type="text/x-handlebars-template">
+    \{{#grouped_each 5 buzzwords}}
+    <div class="row">
+      \{{#each this}}
+        <div class="square">
+            <div class="content">
+              <img class="checkmark" src="/checkmark.png" />
+              <div class="table">
+                <div class="table-cell">
+                  <div>
+                      \{{this}}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      \{{/each}}
+    </div>
+    \{{/grouped_each}}
+  </script>
   </body>
 </div>
 </html>

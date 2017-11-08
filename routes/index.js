@@ -184,27 +184,35 @@ router.get('/bingo-squares', function (req, res) {
     }, function onComplete(err, rowsReturned) {
         console.info(rowsReturned)
 
-		res.render('bingo', {
-			title: pageTitle,
-			squares: bingoSquares
-		})
-    })
-})
+  		res.render('bingo', {
+  			title: pageTitle,
+  			squares: bingoSquares
+  		});
+    });
+});
 
-// Handlebars helper to group bingo squares in sets of 5 for rows
-Handlebars.registerHelper('grouped_each', function(every, context, options) {
-    var out = "", subcontext = [], i;
-    if (context && context.length > 0) {
-        for (i = 0; i < context.length; i++) {
-            if (i > 0 && i % every === 0) {
-                out += options.fn(subcontext)
-                subcontext = []
-            }
-            subcontext.push(context[i])
-        }
-        out += options.fn(subcontext)
-    }
-    return out
-})
+router.get('/buzzwords', function (req, res) {
+  var numBuzzwords = req.query.number;
+  console.log('numBuzzwords in index.js: ' + numBuzzwords);
+  var bingoSquares = [];
+
+  req.database.each('SELECT id, square_text FROM bingo_squares ORDER BY RANDOM() LIMIT ' + numBuzzwords + ';', function (err, row) {
+      if (err) {
+          console.error(err.message)
+      } else {
+		      bingoSquares.push(row)
+      }
+  }, function onComplete(err, rowsReturned) {
+		    res.send(bingoSquares);
+  });
+});
+
+// Handlebars helper for basic for loop
+Handlebars.registerHelper('for', function(from, to, incr, block) {
+    var accum = '';
+    for(var i = from; i < to; i += incr)
+        accum += block.fn(i);
+    return accum;
+});
 
 module.exports = router

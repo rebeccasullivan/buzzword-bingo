@@ -115,9 +115,47 @@ footer a:visited {
 
 
 /* BINGO STYLES */
-#bingoCard .row {
+#buzzwords {
+	width: 100%;
+	margin-top: 2rem;
+}
+#bingoCardInput {
+	margin-top: 3rem;
+}
+#bingo-btns .btn {
+	margin: 1%;
+}
+
+
+@media (max-width: 767px) {
+	.btn-container {
+		margin-top: 2rem;
+	}
+	.bingo-intro {
+		margin-bottom: 0px !important;
+	}
+	.generateBuzzwords {
+		margin-top: 3rem;
+	}
+	.generateBuzzwords .input-group {
+		width: 40%;
+	}
+}
+
+.bingoCard .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
+}
+.bingo-intro {
+	margin-bottom: 3rem;
+}
+
+.btn-container {
+	text-align: center;
+}
+
+.bingo .row {
+	margin-top: 2rem;
 }
 
 .square {
@@ -191,7 +229,7 @@ footer a:visited {
 	    right: inherit !important;
 	    left: auto;
 	}
-	#bingoCard {
+	.bingoCard {
 		width: 80%;
 		margin-right: auto;
 		margin-left: auto;
@@ -207,7 +245,7 @@ footer a:visited {
   }
 }
 
-#bingoCard {
+.bingoCard {
 	margin-top: 30px;
 }
 
