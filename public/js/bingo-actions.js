@@ -77,6 +77,13 @@ $(document).ready(function() {
 		});
 	});
 
+	$('#addBuzzword').on('keypress', function (e) {
+			if ($('#addBuzzword').val().length > 0 && e.which === 13) {
+				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+			}
+			checkBuzzwordCount();
+   });
+
 	$('#bingo-single-btn').click(function() {
 		$.ajax({
 			url: "/buzzwords?number=25",
