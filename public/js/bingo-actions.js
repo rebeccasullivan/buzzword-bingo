@@ -26,6 +26,7 @@ $(document).ready(function() {
 		}
 	}
 
+	// Handlebars helper to group bingo squares in rows of 5
 	Handlebars.registerHelper('grouped_each', function(every, context, options) {
 	    var out = "", subcontext = [], i;
 	    if (context && context.length > 0) {
@@ -41,6 +42,7 @@ $(document).ready(function() {
 	    return out
 	});
 
+	// Event listener to generate bingo card upon "Generate Card" button click
 	$('#generateCardBtn').click(function() {
 		// Get buzzwords from user-input list
 		var buzzwords = [];
@@ -61,6 +63,7 @@ $(document).ready(function() {
 		fillFreeSquare();
 	});
 
+	// Event listener to add randomly generated buzzwords to list
 	$('#addBuzzwords').click(function() {
 		var numBuzzwords = $('#numAdditionalBuzzwords option:selected').val();
 
@@ -77,14 +80,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$('#addBuzzword').on('keypress', function (e) {
-			if ($('#addBuzzword').val().length > 0 && e.which === 13) {
-				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
-				$('#addBuzzword').val('');
-			}
-			checkBuzzwordCount();
-   });
-
+	// Event listener to generate a single bingo card with randomly generated buzzwords from db
 	$('#bingo-single-btn').click(function() {
 		$.ajax({
 			url: "/buzzwords?number=25",
@@ -107,13 +103,27 @@ $(document).ready(function() {
 		});
 	});
 
+	// Event listener for button to add a single buzzword to the user-input list on click event
   $('#buzzwordSubmit').click(function() {
 			if ($('#addBuzzword').val().length > 0) {
-				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
-				$('#addBuzzword').val('');
+				addBuzzwordItem();
 			}
 			checkBuzzwordCount();
 	});
+
+	// Event listener to add single buzzword upon user hitting 'enter'
+	$('#addBuzzword').on('keypress', function (e) {
+			if ($('#addBuzzword').val().length > 0 && e.which === 13) {
+				addBuzzwordItem();
+			}
+			checkBuzzwordCount();
+   });
+
+	 // Helper function to add buzzword to list
+	 function addBuzzwordItem() {
+		 $('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+		 $('#addBuzzword').val('');
+	 }
 
 	$('#removeBuzzwords').click(function() {
 		$("#buzzwords option:selected").remove();
