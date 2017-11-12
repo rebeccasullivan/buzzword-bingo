@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-	// var socket = io();
 	fillFreeSquare();
 
 	function fillFreeSquare() {
@@ -90,7 +88,6 @@ $(document).ready(function() {
 				result.forEach(function(buzzword) {
 					buzzwords.push(buzzword.square_text);
 				});
-				console.log(buzzwords);
 
 				// Compile template for bingo card and add buzzwords from list
 				var template = $('#bingoCardTemplate').html();
@@ -154,15 +151,15 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click','.square',function() {
-		console.log('in .square click event');
 		addMark(this);
 
 		var hasWon = false;
 		var $bingoCard = $(this).parent().parent();
-		console.log('$bingoCard: ' + $bingoCard);
 
 		if (isWinningCard($bingoCard)) {
-			alert("You've won!");
+			setTimeout(function() {
+				alert("You've won!");
+			}, 10)
 		}
 	});
 
@@ -225,7 +222,6 @@ $(document).ready(function() {
 				hasWinningColumn = true;
 			}
 		}
-		console.log('isWinningColumn = ' + hasWinningColumn);
 		return hasWinningColumn;
 	}
 
