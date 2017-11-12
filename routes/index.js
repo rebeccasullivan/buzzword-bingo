@@ -8,6 +8,8 @@ var config = require('../package.json').config || {};
 var marked = require('marked');
 var redis = require('redis');
 var bodyParser = require('body-parser');
+var io = require('socket.io');
+
 
 var redisClient = redis.createClient(process.env.REDIS_URL);
 var contentfulBlogKey = 'contentful-blog-posts';
@@ -52,6 +54,7 @@ router.get('/etc', function(req, res) {
 	res.render('etc')
 });
 
+// Redis cache for Contentful API calls
 function cache(req, res, next) {
     console.log('In cache function in index.js');
 
@@ -210,6 +213,11 @@ router.get('/bingo-games', function (req, res) {
   res.render('bingo-games');
 });
 
+/*
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+*/
 // Handlebars helper for basic for loop
 Handlebars.registerHelper('for', function(from, to, incr, block) {
     var accum = '';

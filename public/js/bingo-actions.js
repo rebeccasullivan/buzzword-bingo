@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+	// var socket = io();
 	fillFreeSquare();
 
 	function fillFreeSquare() {
