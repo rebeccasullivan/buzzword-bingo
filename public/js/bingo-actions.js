@@ -80,6 +80,7 @@ $(document).ready(function() {
 	$('#addBuzzword').on('keypress', function (e) {
 			if ($('#addBuzzword').val().length > 0 && e.which === 13) {
 				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+				$('#addBuzzword').val('');
 			}
 			checkBuzzwordCount();
    });
@@ -109,6 +110,7 @@ $(document).ready(function() {
   $('#buzzwordSubmit').click(function() {
 			if ($('#addBuzzword').val().length > 0) {
 				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+				$('#addBuzzword').val('');
 			}
 			checkBuzzwordCount();
 	});
