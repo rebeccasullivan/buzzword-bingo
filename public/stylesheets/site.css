@@ -170,8 +170,11 @@ footer a:visited {
 	text-align: center;
 	cursor: pointer;
 }
-.square:hover {
-	box-shadow: inset 0 0 30px #110736;
+
+@media (hover:hover) {
+	.square:hover {
+		box-shadow: inset 0 0 30px #110736;
+	}
 }
 
 @media (max-width: 767px) {

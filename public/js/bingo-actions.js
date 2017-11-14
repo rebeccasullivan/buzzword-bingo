@@ -24,6 +24,7 @@ $(document).ready(function() {
 		}
 	}
 
+	// Handlebars helper to group bingo squares in rows of 5
 	Handlebars.registerHelper('grouped_each', function(every, context, options) {
 	    var out = "", subcontext = [], i;
 	    if (context && context.length > 0) {
@@ -39,6 +40,7 @@ $(document).ready(function() {
 	    return out
 	});
 
+	// Event listener to generate bingo card upon "Generate Card" button click
 	$('#generateCardBtn').click(function() {
 		// Get buzzwords from user-input list
 		var buzzwords = [];
@@ -59,6 +61,7 @@ $(document).ready(function() {
 		fillFreeSquare();
 	});
 
+	// Event listener to add randomly generated buzzwords to list
 	$('#addBuzzwords').click(function() {
 		var numBuzzwords = $('#numAdditionalBuzzwords option:selected').val();
 
@@ -75,6 +78,7 @@ $(document).ready(function() {
 		});
 	});
 
+	// Event listener to generate a single bingo card with randomly generated buzzwords from db
 	$('#bingo-single-btn').click(function() {
 		$.ajax({
 			url: "/buzzwords?number=25",
@@ -84,7 +88,6 @@ $(document).ready(function() {
 				result.forEach(function(buzzword) {
 					buzzwords.push(buzzword.square_text);
 				});
-				console.log(buzzwords);
 
 				// Compile template for bingo card and add buzzwords from list
 				var template = $('#bingoCardTemplate').html();
@@ -97,12 +100,27 @@ $(document).ready(function() {
 		});
 	});
 
+	// Event listener for button to add a single buzzword to the user-input list on click event
   $('#buzzwordSubmit').click(function() {
 			if ($('#addBuzzword').val().length > 0) {
-				$('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+				addBuzzwordItem();
 			}
 			checkBuzzwordCount();
 	});
+
+	// Event listener to add single buzzword upon user hitting 'enter'
+	$('#addBuzzword').on('keypress', function (e) {
+			if ($('#addBuzzword').val().length > 0 && e.which === 13) {
+				addBuzzwordItem();
+			}
+			checkBuzzwordCount();
+   });
+
+	 // Helper function to add buzzword to list
+	 function addBuzzwordItem() {
+		 $('#buzzwords').append('<option> ' + $('#addBuzzword').val() + '</option>');
+		 $('#addBuzzword').val('');
+	 }
 
 	$('#removeBuzzwords').click(function() {
 		$("#buzzwords option:selected").remove();
@@ -133,15 +151,15 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click','.square',function() {
-		console.log('in .square click event');
 		addMark(this);
 
 		var hasWon = false;
 		var $bingoCard = $(this).parent().parent();
-		console.log('$bingoCard: ' + $bingoCard);
 
 		if (isWinningCard($bingoCard)) {
-			alert("You've won!");
+			setTimeout(function() {
+				alert("You've won!");
+			}, 10)
 		}
 	});
 
@@ -204,7 +222,6 @@ $(document).ready(function() {
 				hasWinningColumn = true;
 			}
 		}
-		console.log('isWinningColumn = ' + hasWinningColumn);
 		return hasWinningColumn;
 	}
 
