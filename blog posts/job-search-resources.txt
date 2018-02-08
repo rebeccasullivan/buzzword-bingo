@@ -2,6 +2,11 @@ Favorite resources for the job search
 
 Soft Skills/Behavioral
 2-Hour Job Search
+Cracking the Tech Career
+Women Don't Ask
+Mentorship (nothing replaces getting in touch with people at a target company)
+Mock Interviews
+
 
 Technical
 Interview Cake
@@ -9,3 +14,5 @@ Exercism.io
 Cracking the Coding Interview
 Whiteboard practice
 Coding Bat
+Anything by O'Reilly
+
