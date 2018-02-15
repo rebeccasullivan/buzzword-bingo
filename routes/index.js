@@ -1,3 +1,4 @@
+var app = require('../app');
 var express = require('express');
 var Handlebars = require('hbs');
 var router = express.Router();
@@ -8,8 +9,6 @@ var config = require('../package.json').config || {};
 var marked = require('marked');
 var redis = require('redis');
 var bodyParser = require('body-parser');
-var io = require('socket.io');
-
 
 var redisClient = redis.createClient(process.env.REDIS_URL);
 var contentfulBlogKey = 'contentful-blog-posts';
@@ -17,41 +16,67 @@ var contentfulBlogKey = 'contentful-blog-posts';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
+/*
+router.get('/beta/bingo', function(req, res) {
+  // var server = req.connection.server;
+  // var io = require('socket.io')(server);
+
+  var socket = new WebSocket('ws://localhost:3000');
+  socket.onopen = function(event) {
+    var $testDiv = $('#test');
+
+    $testDiv.innerHTML = 'Connected to: ' + event.currentTarget.url;
+    $testDiv.className = 'open';
+  };
+
+  socket.onerror = function(error) {
+    console.log('WebSocket Error: ' + error);
+  };
+
+  io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+  });
+  res.render('test-socketio');
+});
+*/
+
 // Basic GET routes for all pages
 router.get('/', function (req, res) {
-    res.render('home')
+    res.render('home');
 })
 
 router.get('/home', function (req, res) {
-    res.render('home')
+    res.render('home');
 })
 
 router.get('/topic-du-jour', function (req, res) {
-	res.render('topic-du-jour')
+	res.render('topic-du-jour');
 })
 
 router.get('/coding-projects', function(req, res) {
-	res.render('coding-projects')
+	res.render('coding-projects');
 })
 
 router.get('/mba-projects', function(req, res) {
-	res.render('mba-projects')
+	res.render('mba-projects');
 })
 
 router.get('/tech-resume', function(req, res) {
-	res.render('tech-resume')
+	res.render('tech-resume');
 })
 
 router.get('/teaching-resume', function(req, res) {
-	res.render('teaching-resume')
+	res.render('teaching-resume');
 })
 
 router.get('/summit-food-coalition', function(req, res) {
-  res.render('summit-food-coalition')
+  res.render('summit-food-coalition');
 })
 
 router.get('/etc', function(req, res) {
-	res.render('etc')
+	res.render('etc');
 });
 
 // Redis cache for Contentful API calls
