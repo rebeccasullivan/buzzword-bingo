@@ -16,32 +16,6 @@ var contentfulBlogKey = 'contentful-blog-posts';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
-/*
-router.get('/beta/bingo', function(req, res) {
-  // var server = req.connection.server;
-  // var io = require('socket.io')(server);
-
-  var socket = new WebSocket('ws://localhost:3000');
-  socket.onopen = function(event) {
-    var $testDiv = $('#test');
-
-    $testDiv.innerHTML = 'Connected to: ' + event.currentTarget.url;
-    $testDiv.className = 'open';
-  };
-
-  socket.onerror = function(error) {
-    console.log('WebSocket Error: ' + error);
-  };
-
-  io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('disconnect', function(){
-      console.log('user disconnected');
-  });
-  res.render('test-socketio');
-});
-*/
-
 // Basic GET routes for all pages
 router.get('/', function (req, res) {
     res.render('home');
@@ -91,13 +65,13 @@ function cache(req, res, next) {
             var blogPosts = [];
         		jsonEntries.items.forEach(function (entry) {
         			blogPosts.push(entry);
+
         			entry.fields.tags.forEach(function (tag) {
         				tags.add(tag);
         			});
         	  });
 
         		var tagArray = Array.from(tags);
-            console.log(tagArray);
 
             res.render('blog', {
                 blogPosts: blogPosts,
@@ -117,7 +91,6 @@ function getContentfulClient() {
 }
 
 function getBlogPosts(req, res, next) {
-  console.log('in getBlogPosts function in index.js');
   var contentfulClient = getContentfulClient();
 
 	// Get all Contentful entries
@@ -153,17 +126,15 @@ function getBlogPosts(req, res, next) {
 // Blog Routes
 router.get('/blog', cache, getBlogPosts);
 
-router.get('/search', function(req, res) {
-  var searchText = req.query.searchText;
-  console.log('Search text: ' + searchText);
+router.get('/tags/:tag', function(req, res) {
+  var tag = req.params.tag;
 
   var contentfulClient = getContentfulClient();
   contentfulClient.getEntries({
-    'query': searchText
+    'content_type': 'blogPost',
+    'fields.tags[ne]': tag
   })
   .then(function (entries) {
-    console.log('entries.items: ' + entries.items);
-    console.log('entries.items.length: ' + entries.items.length);
     var blogPosts = [];
     var tags = new Set();
 
@@ -176,6 +147,36 @@ router.get('/search', function(req, res) {
 
 		let tagArray = Array.from(tags);
     res.render('search', {
+        searchText: tag,
+	  		blogPosts: blogPosts,
+			  tags: tagArray
+	  });
+  }).catch(function (reason) {
+    console.log(reason);
+  });
+});
+
+router.get('/search', function(req, res) {
+  var searchText = req.query.searchText;
+
+  var contentfulClient = getContentfulClient();
+  contentfulClient.getEntries({
+    'query': searchText
+  })
+  .then(function (entries) {
+    var blogPosts = [];
+    var tags = new Set();
+
+		entries.items.forEach(function (entry) {
+			blogPosts.push(entry);
+			entry.fields.tags.forEach(function (tag) {
+				tags.add(tag);
+			});
+	  });
+
+		let tagArray = Array.from(tags);
+    res.render('search', {
+        searchText: searchText,
 	  		blogPosts: blogPosts,
 			  tags: tagArray
 	  });

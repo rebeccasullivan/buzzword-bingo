@@ -20,7 +20,9 @@
 
 			 <ul class="list-unstyled">
 				 {{#each post.fields.tags}}
-				 <li>{{this}}</li>
+				 <li>
+					 <a href="/tags/{{this}}">{{this}}</a>
+				 </li>
 				 {{/each}}
 		 	 </ul>
          </div>
