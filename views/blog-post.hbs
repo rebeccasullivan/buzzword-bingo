@@ -2,7 +2,12 @@
 	<div class="col-sm-9 blog-post-body">
 		<h3 class="title-blog">{{post.fields.title}}</h3>
 		<hr>
-		{{{post.bodyHtml}}}
+
+		<img src={{{imageUrl}}} style="width: 100%; margin-bottom: 2em;" >
+
+		<div>
+			{{{post.bodyHtml}}}
+		</div>
 	</div>
 	<div class="col-sm-3 sidebar">
 		<a href="/blog" class="btn btn-primary btn-blog">Back to All Posts</a>

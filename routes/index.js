@@ -190,13 +190,24 @@ router.get('/blog/:postId/:entrySlug', function (req, res) {
 	var postId = req.params.postId;
 
   var contentfulClient = getContentfulClient();
-	contentfulClient.getEntry(postId).then(function (entry) {
-		entry.bodyHtml = marked(entry.fields.bodyCopy);
 
-		// Render blog layout with specific blog post elements
-		res.render('blog-post', {
-			post: entry
-		});
+  contentfulClient.getEntry(postId)
+    .then(function (entry) {
+    		entry.bodyHtml = marked(entry.fields.bodyCopy);
+
+        var photoId = entry.fields.photo.sys.id;
+        var url;
+
+        contentfulClient.getAsset(photoId)
+          .then((asset) => {
+            url = `https:${asset.fields.file.url}`;
+
+            // Render blog layout with specific blog post elements
+            res.render('blog-post', {
+              imageUrl: url,
+              post: entry
+            });
+          });
 	});
 });
 
