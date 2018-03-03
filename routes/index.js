@@ -16,7 +16,7 @@ var contentfulBlogKey = 'contentful-blog-posts';
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
-// Basic GET routes for all pages
+// Basic GET routes for all pages - render Handlebars templates
 router.get('/', function (req, res) {
     res.render('home');
 })
@@ -123,16 +123,18 @@ function getBlogPosts(req, res, next) {
 	});
 }
 
-// Blog Routes
+// Attempts to get blog post data from cache first, then falls back to make Contentful call
 router.get('/blog', cache, getBlogPosts);
 
+// Gets list of blog posts that match the tag that was selected
 router.get('/tags/:tag', function(req, res) {
   var tag = req.params.tag;
 
   var contentfulClient = getContentfulClient();
   contentfulClient.getEntries({
     'content_type': 'blogPost',
-    'fields.tags[ne]': tag
+    'fields.tags[ne]': tag,
+    order: '-sys.createdAt'
   })
   .then(function (entries) {
     var blogPosts = [];
@@ -156,12 +158,14 @@ router.get('/tags/:tag', function(req, res) {
   });
 });
 
+// Full-text search based on user input, returns posts that match search criteria
 router.get('/search', function(req, res) {
   var searchText = req.query.searchText;
 
   var contentfulClient = getContentfulClient();
   contentfulClient.getEntries({
-    'query': searchText
+    'query': searchText,
+    order: '-sys.createdAt'
   })
   .then(function (entries) {
     var blogPosts = [];
@@ -185,6 +189,7 @@ router.get('/search', function(req, res) {
   });
 });
 
+// Gets specific blog post based on ID
 router.get('/blog/:postId/:entrySlug', function (req, res) {
 	// Make API call to search for blog post
 	var entrySlug = req.params.entrySlug;
