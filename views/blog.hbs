@@ -4,9 +4,13 @@
 
 		{{#each blogPosts}}
 			<div class="card card-blog">
-				<img class="card-img-top" src="{{this.fields.photo.fields.file.url}}">
+				<a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}">
+					<img class="card-img-top" src="{{this.fields.photo.fields.file.url}}">
+				</a>
 				<div class="card-body-blog blog-post">
-					<h4 class="card-title-blog">{{this.fields.title}}</h4>
+					<a href="/blog/{{this.sys.id}}/{{this.fields.entrySlug}}">
+						<h4 class="card-title-blog">{{this.fields.title}}</h4>
+					</a>
 					<p class="card-text-blog">{{this.fields.bodyCopy}}</p>
 				</div>
 				<div class="card-footer text-muted">
@@ -17,17 +21,6 @@
 				</div>
 			</div>
 		{{/each}}
-
-		 <!-- Pagination nav -->
-
-		 <!--
-		 <nav aria-label="...">
-		   <ul class="pager">
-		     <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-		     <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-		   </ul>
-		 </nav>
-	 -->
 	</div>
 
 

@@ -249,11 +249,6 @@ router.get('/bingo-games', function (req, res) {
   res.render('bingo-games');
 });
 
-/*
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-*/
 // Handlebars helper for basic for loop
 Handlebars.registerHelper('for', function(from, to, incr, block) {
     var accum = '';
